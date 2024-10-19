@@ -65,10 +65,6 @@
         <input type="text" id="phoneNumber" placeholder="Enter your phone number">
         <input type="password" id='password' placeholder="Create a password">
         <input type="button" class="button signupbtn" value="Signup">
-        <button class="google-btn" id="googleSignInBtn">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" width="20">
-          Sign in with Google
-        </button>
       </form>
 
       <div class="signup">
@@ -93,7 +89,7 @@
     </div>
   </div>
 
- 
+
   <!-- Firebase JS SDK -->
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
@@ -198,7 +194,6 @@
         });
     });
 
-    // Signup button functionality
     signupBtn.addEventListener('click', () => {
       const name = document.querySelector('#name').value.trim();
       const username = document.querySelector('#username').value.trim();
@@ -206,28 +201,47 @@
       const password = document.querySelector('#password').value.trim();
       const phone = document.querySelector('#phoneNumber').value.trim();
 
-      if (validateForm(name, username, email, password, phone)) {
-        checkIfEmailExists(email)
-          .then((exists) => {
-            if (!exists) {
-              auth.createUserWithEmailAndPassword(email, password)
-                .then((userCredential) => {
-                  const user = userCredential.user;
-                  user.sendEmailVerification()
-                    .then(() => {
-                      showMessage(`A verification email has been sent to ${email}. Please click on the confirmation link and then log in.`);
-                    });
-                  firestore.collection('users').doc(user.uid).set({
-                    name, username, email, phone
-                  });
-                  showForm(loginForm);
-                })
-                .catch((error) => showMessage('Error signing up: ' + error.message));
-            } else {
-              showMessage('Email already exists. Try logging in.');
-            }
-          });
+      // Basic validation
+      if (!name || !username || !email || !password || !phone) {
+        showMessage('Please fill out all fields.');
+        return;
       }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showMessage('Invalid email format.');
+        return;
+      }
+
+      if (password.length < 6) {
+        showMessage('Password must be at least 6 characters.');
+        return;
+      }
+
+      // Firebase signup
+      auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          // Send email verification
+          user.sendEmailVerification().then(() => {
+            showMessage(`A verification email has been sent to ${email}. Please verify your email and then log in.`);
+          });
+
+          // Save user info to Firestore
+          return firestore.collection('users').doc(user.uid).set({
+            name: name,
+            username: username,
+            email: email,
+            phone: phone,
+          });
+        })
+        .then(() => {
+          showForm(loginForm);  // Switch to login form after signup
+        })
+        .catch((error) => {
+          showMessage('Error signing up: ' + error.message);
+        });
     });
 
     // Login button functionality
@@ -270,11 +284,14 @@
       try {
         const result = await auth.signInWithPopup(provider);
         alert('Google sign-in successful!');
+        location.href = 'earning.html';
       } catch (error) {
         alert(error.message);
       }
     });
+   
   </script>
+  
 </body>
 
 </html>
