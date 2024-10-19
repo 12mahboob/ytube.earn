@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  min-height: 120vh;
+  width: 100%;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem; /* Reduced padding for mobile */
+  text-align: center;
+  z-index: 10;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  padding: 0; /* Remove default padding */
+}
+
+nav ul li {
+  margin: 0 10px; /* Adjusted margin */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px; /* Set a standard font size */
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 430px;
+  width: 90%; /* Allow container to be responsive */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  margin-top: 80px; /* Space for nav */
+  z-index: 5;
+}
+
+#message {
+  color: rgba(250, 166, 132, 0.733);
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form {
+  color: #fff;
+  display: none;
+}
+
+.login {
+  display: block; /* Display login form by default */
+}
+
+.form input {
+  height: 50px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.form input.button {
+  color: #fff;
+  background: rgba(0, 149, 121, 0.8);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.form input.button:hover {
+  background: rgba(0, 149, 121, 1);
+}
+
+.signup a {
+  color: #00ffcc;
+  cursor: pointer;
+}
+
+.signup a:hover {
+  text-decoration: underline;
+}
+
+.google-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #8eb5f5;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background-color 0.3s;
+}
+
+.google-btn img {
+  margin-right: 10px;
+}
+
+.google-btn:hover {
+  background-color: #357ae8; /* Darker shade for hover effect */
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  nav ul li {
+    margin: 0 5px; /* Reduced margin */
+  }
+
+  .form input {
+    font-size: 15px;
+    height: 45px; /* Reduce input height */
+  }
+
+  .form input.button {
+    font-size: 1rem; /* Reduce button size */
+  }
+
+  .google-btn {
+    font-size: 14px; /* Smaller Google button font */
+    height: 45px; /* Reduce button height */
+  }
+}
+
+@media (max-width: 500px) {
+  nav ul {
+    flex-direction: column; /* Stack navigation items */
+  }
+
+  nav ul li {
+    margin: 5px 0; /* Adjust margin for stacked items */
+  }
+
+  .container {
+    width: 90%; /* Make container width responsive */
+    padding: 1rem; /* Padding for smaller screens */
+    margin-top: 70px; /* Adjust margin for nav */
+  }
+
+  .form input {
+    font-size: 14px; /* Smaller input font */
+  }
+
+  .shape {
+    width: 120px; /* Smaller shape size */
+    height: 120px; /* Smaller shape size */
+  }
+
+  .shape1 {
+    animation-duration: 5s; /* Faster animation */
+  }
+
+  .shape2 {
+    animation-duration: 4s; /* Faster animation */
+  }
+
+  .shape3 {
+    animation-duration: 6s; /* Faster animation */
+  }
+
+  .shape4 {
+    animation-duration: 5s; /* Faster animation */
+  }
+}
+
+/* Animated shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: float 6s infinite;
+}
+
+.shape1 {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2);
+  top: 20%;
+  left: 10%;
+  animation-duration: 7s;
+}
+
+.shape2 {
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 0, 150, 0.5);
+  top: 30%;
+  right: 10%;
+  animation-duration: 5s;
+}
+
+.shape3 {
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 255, 255, 0.3);
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-duration: 8s;
+}
+
+.shape4 {
+  width: 180px;
+  height: 180px;
+  background: rgba(255, 255, 0, 0.3);
+  bottom: 10%;
+  right: 15%;
+  animation-duration: 6s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+input::placeholder{
+  color: #000;
+}

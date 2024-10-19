@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Funds - Easypaisa Payment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Nav Bar Styling */
+        nav {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Transparent Background */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        nav .back-btn {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        nav .back-btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        nav h1 {
+            font-size: 18px;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* Main Content Container */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            max-width: 600px;
+            margin: 100px auto;
+            /* Adjusted for the fixed nav */
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            position: relative;
+            z-index: 2;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Info Box Styling */
+        .info-box {
+            background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            color: #000;
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .info-box p strong {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        /* Form styles remain the same (from the previous version) */
+        .form-group {
+            margin-bottom: 18px;
+            
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            /* Consistent transparent background */
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4a90e2;
+            /* Blue focus border */
+            box-shadow: 0 0 12px rgba(74, 144, 226, 0.6);
+            background: #000;
+            outline: none;
+        }
+
+        input[readonly] {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: red;
+            cursor: not-allowed;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            background: rgba(74, 144, 226, 0.2);
+            /* Light Blue */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            background: rgba(74, 144, 226, 0.5);
+            /* Darker blue on hover */
+            border-color: rgba(74, 144, 226, 0.7);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+        }
+
+        /* Loader styling */
+        .loader {
+            display: none;
+            width: 25px;
+            height: 25px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid rgba(74, 144, 226, 1);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            .info-box {
+                font-size: 14px;
+            }
+
+            button {
+                padding: 12px;
+                font-size: 14px;
+            }
+        }
+
+        /* Floating Shapes */
+        .floating-shape {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            z-index: 1;
+            animation: float 12s ease-in-out infinite;
+        }
+
+        /* Adjusted shapes to float below and around the form */
+        .shape-1,
+        .shape-2,
+        .shape-3,
+        .shape-4 {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 50px;
+            background: rgba(94, 255, 162, 0.2);
+            /* Green floating shape */
+        }
+
+        .shape-2 {
+            width: 120px;
+            height: 120px;
+            top: 80px;
+            right: 60px;
+            background: rgba(255, 94, 94, 0.2);
+            /* Red floating shape */
+        }
+
+        .shape-3 {
+            width: 100px;
+            height: 100px;
+            bottom: 80px;
+            left: 20px;
+            background: rgba(255, 228, 94, 0.2);
+            /* Yellow floating shape */
+        }
+
+        .shape-4 {
+            width: 140px;
+            height: 140px;
+            bottom: 60px;
+            right: 40px;
+            background: rgba(94, 145, 255, 0.2);
+            /* Blue floating shape */
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <nav>
+            <div class="back-btn" onclick="goBack()">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" alt="Back">
+                <h1>Back</h1>
+            </div>
+        </nav>
+        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Select the back button div
+                const backButton = document.querySelector(".back-btn");
+        
+                // Attach event listener for click event
+                backButton.addEventListener("click", function () {
+                    window.location.href = 'earning.html'; // Ensure this path is correct
+                });
+            });
+        </script>
+        
+            </nav>
+
+    <div class="container">
+        <div class="info-box">
+            <p><strong>Important:</strong> 
+                Please send the exact deposit amount of <strong style="color: brown;">₨500</strong> to the following
+                Easypaisa number:</p>
+            <p><strong>Easypaisa Number:</strong> <span style="color: brown; font-weight: 100; font-size: x-large;">0345-1234567</span></p>
+            <p>After sending the payment, fill out the form below with the transaction details and upload the screenshot
+                as proof of payment.</p>        
+            </div>
+
+        <form id="deposit-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="account-number">Account Number (11 digits):</label>
+                <input type="text" id="account-number" name="account-number" placeholder="Enter your account number"
+                    required pattern="\d{11}" maxlength="11">
+            </div>
+
+            <div class="form-group">
+                <label for="amount">Deposit Amount (₨):</label>
+                <input type="number" id="amount" name="amount" value="500" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="easypaisa" selected>Easypaisa</option>
+                    <option value="jazzcash">JazzCash</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="payment-details">Payment Details (Transaction ID):</label>
+                <input type="text" id="payment-details" name="payment-details"
+                    placeholder="Enter payment transaction ID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="screenshot">Upload Payment Screenshot:</label>
+                <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
+            </div>
+
+            <button type="submit">Submit Deposit</button>
+        </form>
+      <div class="loader"></div>
+        </form>
+    </div>
+
+    <!-- Floating shapes for decoration -->
+    <div class="shape-1 floating-shape"></div>
+    <div class="shape-2 floating-shape"></div>
+    <div class="shape-3 floating-shape"></div>
+    <div class="shape-4 floating-shape"></div>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDIXTdmPeQZeIS7mmA2E06vg_ow4ZWAOT0",
+            authDomain: "ytube-earn.firebaseapp.com",
+            projectId: "ytube-earn",
+            storageBucket: "ytube-earn.appspot.com",
+            messagingSenderId: "179827157577",
+            appId: "1:179827157577:web:bad466f447c859ecdeed98",
+            measurementId: "G-LK3NPV3L3E"
+        };
+    
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    
+        const form = document.getElementById('deposit-form');
+        const loader = document.getElementById('loader');
+        const pendingMessage = document.getElementById('pending-message');
+    
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            loader.style.display = 'block';
+    
+            const name = document.getElementById('name').value;
+            const accountNumber = document.getElementById('account-number').value;
+            const amount = document.getElementById('amount').value;
+            const paymentMethod = document.getElementById('payment-method').value;
+            const paymentDetails = document.getElementById('payment-details').value;
+    
+            db.collection("deposits").add({
+                name,
+                accountNumber,
+                amount,
+                paymentMethod,
+                paymentDetails,
+                timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                loader.style.display = 'none';
+                pendingMessage.style.display = 'block';
+            }).catch(error => {
+                loader.style.display = 'none';
+                alert('Error saving deposit: ' + error);
+            });
+        });
+    </script>
+
+</body>
+
+</html>

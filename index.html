@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Registration Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Animated Shapes -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <div class="shape shape4"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#" id="loginLabel">Login</a></li>
+      <li><a href="#" id="signupLabel">Signup</a></li>
+    </ul>
+  </nav>
+
+  <!-- Container with forms -->
+  <div class="container">
+    <!-- Message display div -->
+    <div id="message"></div>
+
+    <!-- Login Form -->
+    <div class="login form">
+      <header>Login</header>
+      <form action="#">
+        <input type="text" id='inUsr' placeholder="Enter your email">
+        <input type="password" id="inPass" placeholder="Enter your password">
+        <input type="button" class="button loginbtn" value="Login">
+        <span class="signup">
+          <a href="#" id="forgotLabel">Forgot password?</a>
+        </span>
+      </form>
+
+      <!-- Google Sign-In Button -->
+      <button class="google-btn" id="googleSignInBtn">
+        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" width="20">
+        Sign in with Google
+      </button>
+
+      <div class="signup">
+        <span>Don't have an account?
+          <a href="#" id="signupLabel">Signup</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="registration form">
+      <header>Signup</header>
+      <form action="#">
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="text" id='username' placeholder="Enter your username">
+        <input type="text" id='email' placeholder="Enter your email">
+        <input type="text" id="phoneNumber" placeholder="Enter your phone number">
+        <input type="password" id='password' placeholder="Create a password">
+        <input type="button" class="button signupbtn" value="Signup">
+        <button class="google-btn" id="googleSignInBtn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" width="20">
+          Sign in with Google
+        </button>
+      </form>
+
+      <div class="signup">
+        <span>Already have an account?
+          <a href="#" id="loginLabel">Login</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="forgot form">
+      <header>Forgot Password</header>
+      <form action="#">
+        <input type="text" id="forgotinp" placeholder="Enter your email">
+        <input type="button" class="button forgotbtn" value="Send Reset Link">
+      </form>
+      <div class="signup">
+        <span>Remember your password?
+          <a href="#" id="loginLabel">Login</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+ 
+  <!-- Firebase JS SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script>
+    // Firebase initialization
+    const firebaseConfig = {
+      apiKey: "AIzaSyDIXTdmPeQZeIS7mmA2E06vg_ow4ZWAOT0",
+      authDomain: "ytube-earn.firebaseapp.com",
+      projectId: "ytube-earn",
+      storageBucket: "ytube-earn.appspot.com",
+      messagingSenderId: "179827157577",
+      appId: "1:179827157577:web:bad466f447c859ecdeed98",
+      measurementId: "G-LK3NPV3L3E"
+    };
+
+    const firebaseApp = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const firestore = firebase.firestore();
+
+    // DOM elements
+    const loginForm = document.querySelector('.login');
+    const signupForm = document.querySelector('.registration');
+    const forgotForm = document.querySelector('.forgot');
+    const loginBtn = document.querySelector('.loginbtn');
+    const signupBtn = document.querySelector('.signupbtn');
+    const forgotBtn = document.querySelector('.forgotbtn');
+
+    // Show forms
+    document.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (link.id === 'loginLabel') showForm(loginForm);
+        if (link.id === 'signupLabel') showForm(signupForm);
+        if (link.id === 'forgotLabel') showForm(forgotForm);
+      });
+    });
+
+    // Show form function
+    function showForm(form) {
+      document.querySelectorAll('.form').forEach(f => f.style.display = 'none');
+      form.style.display = 'block';
+    }
+
+    // Form validation
+    function validateForm(name, username, email, password, phone) {
+      if (!name || !username || !email || !password || !phone) {
+        showMessage('Please fill out all fields.');
+        return false;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showMessage('Invalid email format.');
+        return false;
+      }
+
+      if (password.length < 6) {
+        showMessage('Password must be at least 6 characters.');
+        return false;
+      }
+
+      return true;
+    }
+
+    // Show message function
+    function showMessage(message) {
+      const messageDiv = document.getElementById('message');
+      messageDiv.innerHTML = message;
+    }
+
+    // Forgot Password functionality
+    forgotBtn.addEventListener('click', () => {
+      const email = document.querySelector('#forgotinp').value.trim();
+
+      if (!email) {
+        showMessage('Please enter your email.');
+        return;
+      }
+
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        showMessage('Invalid email format.');
+        return;
+      }
+
+      auth.sendPasswordResetEmail(email)
+        .then(() => {
+          showMessage(`Password reset email has been sent to ${email}. Please check your inbox.`);
+        })
+        .catch((error) => {
+          switch (error.code) {
+            case 'auth/user-not-found':
+              showMessage('No user found with this email. Please check and try again.');
+              break;
+            case 'auth/invalid-email':
+              showMessage('Invalid email format. Please enter a valid email address.');
+              break;
+            default:
+              showMessage('Error sending password reset email: ' + error.message);
+          }
+        });
+    });
+
+    // Signup button functionality
+    signupBtn.addEventListener('click', () => {
+      const name = document.querySelector('#name').value.trim();
+      const username = document.querySelector('#username').value.trim();
+      const email = document.querySelector('#email').value.trim();
+      const password = document.querySelector('#password').value.trim();
+      const phone = document.querySelector('#phoneNumber').value.trim();
+
+      if (validateForm(name, username, email, password, phone)) {
+        checkIfEmailExists(email)
+          .then((exists) => {
+            if (!exists) {
+              auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                  const user = userCredential.user;
+                  user.sendEmailVerification()
+                    .then(() => {
+                      showMessage(`A verification email has been sent to ${email}. Please click on the confirmation link and then log in.`);
+                    });
+                  firestore.collection('users').doc(user.uid).set({
+                    name, username, email, phone
+                  });
+                  showForm(loginForm);
+                })
+                .catch((error) => showMessage('Error signing up: ' + error.message));
+            } else {
+              showMessage('Email already exists. Try logging in.');
+            }
+          });
+      }
+    });
+
+    // Login button functionality
+    loginBtn.addEventListener('click', () => {
+      const email = document.querySelector('#inUsr').value.trim();
+      const password = document.querySelector('#inPass').value.trim();
+
+      if (!email || !password) {
+        showMessage('Please enter both email and password.');
+        return;
+      }
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          if (user.emailVerified) {
+            location.href = 'earning.html';
+          } else {
+            showMessage('Please verify your email before logging in.');
+          }
+        })
+        .catch((error) => {
+          if (error.code === 'auth/user-not-found') {
+            showMessage('No user found with this email. Please signup first.');
+          } else if (error.code === 'auth/wrong-password') {
+            showMessage('Incorrect password. Please check the password you entered.');
+          } else if (error.code === 'auth/invalid-email') {
+            showMessage('Invalid email format. Please enter a valid email address.');
+          } else if (error.message.includes('INVALID_LOGIN_CREDENTIALS')) {
+            showMessage('Invalid login credentials. Please check your email and password.');
+          } else {
+            showMessage('Error logging in: ' + error.message);
+          }
+        });
+    });
+
+    // Google Sign-In functionality
+    googleSignInBtn.addEventListener('click', async function () {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      try {
+        const result = await auth.signInWithPopup(provider);
+        alert('Google sign-in successful!');
+      } catch (error) {
+        alert(error.message);
+      }
+    });
+  </script>
+</body>
+
+</html>

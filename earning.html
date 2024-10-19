@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ytube-earn</title>
+    <link rel="icon" type="image/jpg" href="https://i.postimg.cc/PJCs9yV6/Logo.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="earning.css">
+</head>
+
+<body>
+    <nav class="header">
+        <div class="logo">
+            <img src="https://i.postimg.cc/PJCs9yV6/Logo.jpg" alt="Logo">
+        </div>
+        <ul class="navbar">
+            <li><a href="#" id="earnings-link"><i class="fas fa-home"></i>Home</a></li>
+            <li><a href="#" id="withdraw-link"><i class="fas fa-dollar-sign"></i>Withdraw</a></li>
+            <li><a href="deposit.html"><i class="fas fa-wallet"></i>Deposit</a></li>
+            <li><a href="#" id="daily-bonus-link"><i class="fas fa-gift"></i>Daily Bonus</a></li>
+            <li><a href="#" id="hourly-faucet-link"><i class="fas fa-clock"></i>Hourly Faucet</a></li>
+        </ul>
+        <div class="counter">Balance: <span id="balance">0</span></div>
+    </nav>
+
+    <div id="earning-buttons">
+        <h2>Subscribe to Earn</h2>
+
+    </div>
+    <div id="daily-bonus">
+        <h2>
+            claim Your Daily Bonus
+        </h2>
+    </div>
+    <div id="hourly-faucet">
+        <h2>
+            Claim Your Hourly bonus...
+        </h2>
+    </div>
+
+
+    <!-- Withdrawal Form -->
+    <div id="withdrawal-form">
+        <form id="withdrawForm">
+            <label for="requiredMoney">Withdrawal Amount:</label>
+            <input type="number" id="requiredMoney" name="requiredMoney" required
+                placeholder="Enter the amount to withdraw">
+
+            <label for="method">Withdrawal Method:</label>
+            <select id="method" name="method" required>
+                <option value="" disabled selected>Select method</option>
+                <option value="jazzcash">JazzCash</option>
+                <option value="easypaisa">Easypaisa</option>
+            </select>
+
+            <!-- New fields for Name and Account Number -->
+            <label for="userName">Name:</label>
+            <input type="text" id="userName" name="userName" required placeholder="Enter your name">
+
+            <label for="accountNumber">Account Number:</label>
+            <input type="number" id="accountNumber" name="accountNumber" required
+                placeholder="Enter your account number">
+
+            <label for="withdrawReason">Reason for Withdrawal:</label>
+            <textarea id="withdrawReason" name="withdrawReason" required
+                placeholder="Enter reason for withdrawal"></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <div class="bottom-bar">
+        <a href="#" id="nav-earnings"><i class="fas fa-home"></i>Home</a>
+        <a href="deposit.html" id="deposit"><i class="fas fa-wallet"></i>Deposit</a>
+        <a href="#" id="nav-withdraw"><i class="fas fa-dollar-sign"></i>Withdraw</a>
+        <a href="#" id="nav-daily-bonus"><i class="fas fa-gift"></i>Daily Bonus</a>
+        <a href="#" id="nav-hourly-faucet"><i class="fas fa-clock"></i>Hourly Faucet</a>
+    </div>
+
+    <script>
+
+        // Initialize balance from localStorage or set default balance
+        let balance = parseFloat(localStorage.getItem('balance')) || 0;
+
+        // Define the amount to be added for each successful verification
+        const rewardAmount = 0.50; // Adjust this value for the amount rewarded per click
+
+        // Function to update the balance
+        function updateBalance(amount) {
+            balance += amount;
+            localStorage.setItem('balance', balance);
+            displayBalance();
+        }
+
+        // Function to update the balance display
+        function displayBalance() {
+            document.getElementById("balance").textContent = balance.toFixed(2); // Display the balance
+        }
+
+        // Function to create a button for a YouTube link with a unique name
+        function createYouTubeButton(index) {
+            const link = links[index - 1]; // Get the link based on index
+            const button = document.createElement("button");
+            button.textContent = `Subscribe ${index}`; // Unique button text
+            button.dataset.link = link; // Store the link as a data attribute
+
+            const lastClickedDate = localStorage.getItem(`lastClickedDate_${index}`);
+            const currentTime = new Date();
+            if (lastClickedDate) {
+                const lastDate = new Date(lastClickedDate);
+                if ((currentTime - lastDate) < 86400000) { // 24-hour limit
+                    button.style.display = 'none'; // Hide if clicked within 24 hours
+                }
+            }
+
+            button.onclick = function () {
+                button.style.backgroundColor = "blue"; // Change button color to blue
+                button.textContent = ""; // Clear button text
+
+                const newWindow = window.open(link, "_blank"); // Open YouTube link in new tab
+                const countdownDisplay = document.createElement("span");
+                countdownDisplay.classList.add("countdown");
+                button.appendChild(countdownDisplay);
+
+                startCountdown(5, countdownDisplay, button, index, newWindow); // Start countdown
+            };
+
+            document.getElementById("earning-buttons").appendChild(button);
+        }
+
+        // Countdown function
+        function startCountdown(duration, display, button, index, newWindow) {
+            let timer = duration, seconds;
+            const countdownInterval = setInterval(() => {
+                seconds = parseInt(timer % 60, 10);
+                seconds = seconds < 10 ? "0" + seconds : seconds; // Format seconds
+                display.textContent = seconds; // Update countdown display
+                timer--;
+
+                if (timer < 0) {
+                    clearInterval(countdownInterval); // End countdown
+                    button.textContent = "Verify";
+                    button.style.backgroundColor = "green"; // Change to green after countdown
+
+                    button.onclick = function () {
+                        updateBalance(rewardAmount); // Add reward to balance
+                        localStorage.setItem(`lastClickedDate_${index}`, new Date().toISOString());
+                        newWindow.close(); // Close YouTube window
+                        button.style.display = 'none'; // Hide button after verification
+                    };
+                }
+            }, 1000);
+        }
+
+        // Withdrawal form submission
+        const withdrawFormElement = document.getElementById("withdrawForm");
+        withdrawFormElement.addEventListener("submit", function (e) {
+            e.preventDefault(); // Prevent form submission
+            alert("You have not deposited... please deposit and confirm your seat and then withdraw money.");
+        });
+
+        // Load initial balance on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            displayBalance(); // Show the balance when the page loads
+            displayEarningButtons(); // Show earning buttons
+        });
+
+        // YouTube buttons links
+        const links = [
+            "https://example.com/link1",
+            "https://example.com/link2",
+            "https://example.com/link500"
+        ];
+
+        // Create earning buttons dynamically
+        function displayEarningButtons() {
+            for (let i = 1; i <= 500; i++) {
+                createYouTubeButton(i); // Create 500 buttons
+            }
+        }
+
+        // Daily Bonus & Hourly Faucet Logic
+        const bonuses = [200, 240, 280, 320, 360, 400, 440]; // Daily bonuses
+        const hourlyBonus = 40;
+
+     // Updated createDailyBonusButtons function
+function createDailyBonusButtons() {
+    const dailyBonusContainer = document.getElementById('daily-bonus');
+    dailyBonusContainer.innerHTML = ''; // Clear existing buttons
+
+    const lastBonusDay = parseInt(localStorage.getItem('lastBonusDay')) || 0; // Retrieve last claimed day
+    const todayClaimed = localStorage.getItem('todayClaimed') === 'true'; // Check if today's bonus is already claimed
+    const nextBonusAvailableTime = localStorage.getItem('nextBonusAvailableTime'); // Next available bonus time
+    const currentTime = new Date().getTime(); // Current time in milliseconds
+
+    if (lastBonusDay < bonuses.length) { // Only show if bonuses are still available
+        const bonus = bonuses[lastBonusDay];
+
+        // Check if it's time to claim the next bonus
+        const isNextDayAvailable = !nextBonusAvailableTime || currentTime >= nextBonusAvailableTime;
+
+        // Create today's button if today's bonus is not claimed
+        const button = document.createElement('button');
+        button.textContent = `Day ${lastBonusDay + 1} Bonus: ${bonus} PKR`;
+
+        if (!todayClaimed && isNextDayAvailable) {
+            // Allow claiming if it's the right day
+            button.onclick = function () {
+                button.style.backgroundColor = "yellow"; // Change color to yellow
+                updateBalance(bonus);
+                localStorage.setItem('lastBonusDay', lastBonusDay + 1); // Increment day after claim
+                localStorage.setItem('todayClaimed', 'true'); // Mark today's bonus as claimed
+                localStorage.setItem('nextBonusAvailableTime', new Date().getTime() + 24 * 60 * 60 * 1000); // Set next available time (24 hours later)
+
+                // Start countdown for the next bonus
+                startRemainingTimeCountdown(button, 24 * 60 * 60 * 1000); // Start countdown for 24 hours
+            };
+        } else {
+            // If bonus cannot be claimed, disable the button
+            button.disabled = true;
+
+            // Check if it's too early for the next day
+            if (!isNextDayAvailable) {
+                const remainingTime = nextBonusAvailableTime - currentTime;
+                startRemainingTimeCountdown(button, remainingTime); // Start countdown for remaining time
+            } else {
+                // If today's bonus is already claimed, show a message
+                button.textContent = 'You have already claimed today\'s bonus!';
+            }
+        }
+
+        dailyBonusContainer.appendChild(button); // Append the bonus button
+    } else {
+        dailyBonusContainer.textContent = 'No more bonuses available!';
+    }
+}
+
+// Updated createHourlyFaucetButton function
+function createHourlyFaucetButton() {
+    const hourlyFaucetContainer = document.getElementById('hourly-faucet');
+
+    // Clear any existing buttons
+    hourlyFaucetContainer.innerHTML = '';
+
+    const hourlyButton = document.createElement('button');
+    hourlyButton.textContent = `Claim Hourly Faucet: ${hourlyBonus} PKR`;
+
+    const lastClaimTime = localStorage.getItem('lastClaimTime');
+    const currentTime = Date.now();
+    const claimCooldown = 3600000; // 1 hour in milliseconds
+
+    if (lastClaimTime) {
+        const timeSinceLastClaim = currentTime - lastClaimTime;
+        if (timeSinceLastClaim < claimCooldown) { // Check if it's been less than an hour
+            const remainingTime = claimCooldown - timeSinceLastClaim; // Calculate remaining time
+            hourlyButton.textContent = `Next claim in: ${Math.floor(remainingTime / 3600000)}h ${Math.floor((remainingTime % 3600000) / 60000)}m ${Math.floor((remainingTime % 60000) / 1000)}s`;
+            hourlyButton.disabled = true; // Disable button while waiting
+            startRemainingTimeCountdown(hourlyButton, remainingTime); // Start countdown for remaining time
+        } else {
+            hourlyButton.disabled = false; // Enable button if cooldown has passed
+        }
+    }
+
+    hourlyButton.onclick = function () {
+        hourlyButton.style.backgroundColor = "yellow"; // Change color to yellow
+        updateBalance(hourlyBonus);
+        localStorage.setItem('lastClaimTime', Date.now());
+        hourlyButton.disabled = true; // Disable after claim
+        createHourlyFaucetButton(); // Refresh the button to show remaining time
+    };
+
+    hourlyFaucetContainer.appendChild(hourlyButton); // Append the faucet button
+}
+
+// Function to handle countdown for remaining time
+function startRemainingTimeCountdown(button, remainingTime) {
+    const countdownInterval = setInterval(() => {
+        remainingTime -= 1000; // Decrease remaining time by 1 second
+        const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
+        const seconds = Math.floor((remainingTime / 1000) % 60);
+        button.textContent = `Next claim in: ${hours}h ${minutes}m ${seconds}s`;
+
+        if (remainingTime <= 0) {
+            clearInterval(countdownInterval); // Stop the countdown
+            button.textContent = `Claim Hourly Faucet: ${hourlyBonus} PKR`;
+            button.disabled = false; // Enable the button
+        }
+    }, 1000);
+}
+
+// Call these functions at the right places in your existing logic
+createDailyBonusButtons();
+createHourlyFaucetButton();
+
+ // Show earnings buttons and hide others
+        document.getElementById('earnings-link').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('show');
+            document.getElementById('withdrawal-form').classList.add('hide');
+            document.getElementById('earning-buttons').classList.remove('hide');
+            document.getElementById('earning-buttons').classList.add('show');
+            document.getElementById('daily-bonus').classList.add('hide');
+            document.getElementById('hourly-faucet').classList.add('hide');
+        });
+
+        // Show withdrawal form and hide others
+        document.getElementById('withdraw-link').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('hide');
+            document.getElementById('withdrawal-form').classList.add('show');
+            document.getElementById('earning-buttons').classList.remove('show');
+            document.getElementById('earning-buttons').classList.add('hide');
+            document.getElementById('daily-bonus').classList.add('hide');
+            document.getElementById('hourly-faucet').classList.add('hide');
+        });
+
+        // Show daily bonus only
+        document.getElementById('nav-daily-bonus').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('show');
+            document.getElementById('withdrawal-form').classList.add('hide');
+            document.getElementById('earning-buttons').classList.remove('show');
+            document.getElementById('earning-buttons').classList.add('hide');
+            document.getElementById('daily-bonus').classList.remove('hide');
+            document.getElementById('hourly-faucet').classList.add('hide');
+            createDailyBonusButtons(); // Show daily bonus
+        });
+
+        // Show hourly faucet only
+        document.getElementById('nav-hourly-faucet').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('show');
+            document.getElementById('withdrawal-form').classList.add('hide');
+            document.getElementById('earning-buttons').classList.remove('show');
+            document.getElementById('earning-buttons').classList.add('hide');
+            document.getElementById('daily-bonus').classList.add('hide');
+            document.getElementById('hourly-faucet').classList.remove('hide');
+            createHourlyFaucetButton(); // Show hourly faucet
+        });
+
+        // Bottom bar navigation links
+        document.getElementById('nav-earnings').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('show');
+            document.getElementById('withdrawal-form').classList.add('hide');
+            document.getElementById('earning-buttons').classList.remove('hide');
+            document.getElementById('earning-buttons').classList.add('show');
+            document.getElementById('daily-bonus').classList.add('hide');
+            document.getElementById('hourly-faucet').classList.add('hide');
+        });
+
+        document.getElementById('nav-withdraw').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('hide');
+            document.getElementById('withdrawal-form').classList.add('show');
+            document.getElementById('earning-buttons').classList.remove('show');
+            document.getElementById('earning-buttons').classList.add('hide');
+            document.getElementById('daily-bonus').classList.add('hide');
+            document.getElementById('hourly-faucet').classList.add('hide');
+        });
+        document.getElementById('hourly-faucet-link').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('show');
+            document.getElementById('withdrawal-form').classList.add('hide');
+            document.getElementById('earning-buttons').classList.remove('show');
+            document.getElementById('earning-buttons').classList.add('hide');
+            document.getElementById('daily-bonus').classList.add('hide');
+            document.getElementById('hourly-faucet').classList.remove('hide');
+            createHourlyFaucetButton(); // Show hourly faucet
+        });
+
+        // Show daily bonus only
+        document.getElementById('daily-bonus-link').addEventListener('click', function () {
+            document.getElementById('withdrawal-form').classList.remove('show');
+            document.getElementById('withdrawal-form').classList.add('hide');
+            document.getElementById('earning-buttons').classList.remove('show');
+            document.getElementById('earning-buttons').classList.add('hide');
+            document.getElementById('daily-bonus').classList.remove('hide');
+            document.getElementById('hourly-faucet').classList.add('hide');
+            createDailyBonusButtons(); // Show daily bonus
+        });
+
+        // Initialize buttons on page load
+        window.onload = function () {
+            displayBalance();
+        };
+    </script>
+</body>
+
+</html>
