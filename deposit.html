@@ -1,419 +1,390 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deposit Funds - Easypaisa Payment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        /* Base Styling */
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1b2735 0%, #090a0f 100%);
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-            min-height: 100vh;
-            color: rgba(255, 255, 255, 0.9);
-        }
 
-        /* Nav Bar Styling */
-        nav {
-            display: flex;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: rgba(255, 255, 255, 0.1);
-            /* Transparent Background */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ytube - Deposit</title>
+    <meta name="title" Content="ytube-earn - Deposit Confirm">
+    <meta name="description" content="Ytube is a  best earning website.">
+    <meta name="keywords" content="ppc,pay per click,earn money,ppv,pey per view,paid click,earn per click free earning, earn money by watching videos, earn money by watching ads, earn money online, how to earn money online, ptc ads website.">
+    <link rel="shortcut icon"
+        href="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp " type="
+        image/x-icon">
 
-        nav .back-btn {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            color: #fff;
-        }
 
-        nav .back-btn img {
-            width: 24px;
-            height: 24px;
-            margin-right: 8px;
-        }
+    <link rel="apple-touch-icon"
+        href="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp">
 
-        nav h1 {
-            font-size: 18px;
-            color: #fff;
-            margin: 0;
-        }
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Ytube - deposit">
 
-        /* Main Content Container */
-        .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-            max-width: 600px;
-            margin: 100px auto;
-            /* Adjusted for the fixed nav */
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 1s ease;
-        }
+    <meta itemprop="name" content="Ytube-earn - deposit">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp">
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Ytube website.">
+    <meta property="og:description" content="Ytube is best earning website ">
+    <meta property="og:image" content="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1180" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:url" content="https://Ytube-earn.netlify.app">
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        /* Info Box Styling */
-        .info-box {
-            background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            color: #000;
-        }
+    <meta name="twitter:card" content="summary_large_image">
+    <!-- Bootstrap CSS -->
+    <link href="https://www.eads.pk/assets/global/css/bootstrap.min.css" rel="stylesheet">
 
-        .info-box p {
-            margin-bottom: 10px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+    <link href="https://www.eads.pk/assets/global/css/all.min.css" rel="stylesheet">
 
-        .info-box p strong {
-            font-weight: 600;
-            color: #fff;
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/global/css/line-awesome.min.css" />
 
-        /* Form styles remain the same (from the previous version) */
-        .form-group {
-            margin-bottom: 18px;
-            
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/lightcase.css">
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.85);
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/vendor/animate.min.css">
 
-        input,
-        select {
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 12px;
-            color: rgba(255, 255, 255, 0.9);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
-            /* Consistent transparent background */
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/vendor/nice-select.css">
 
-        input:focus,
-        select:focus {
-            border-color: #4a90e2;
-            /* Blue focus border */
-            box-shadow: 0 0 12px rgba(74, 144, 226, 0.6);
-            background: #000;
-            outline: none;
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/vendor/slick.css">
 
-        input[readonly] {
-            background-color: rgba(255, 255, 255, 0.1);
-            color: red;
-            cursor: not-allowed;
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/main.css">
 
-        button {
-            width: 100%;
-            padding: 14px;
-            font-size: 16px;
-            background: rgba(74, 144, 226, 0.2);
-            /* Light Blue */
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/custom.css">
 
-        button:hover {
-            background: rgba(74, 144, 226, 0.5);
-            /* Darker blue on hover */
-            border-color: rgba(74, 144, 226, 0.7);
-            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
-        }
-
-        /* Loader styling */
-        .loader {
-            display: none;
-            width: 25px;
-            height: 25px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid rgba(74, 144, 226, 1);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 10px auto;
-        }
-
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            .info-box {
-                font-size: 14px;
-            }
-
-            button {
-                padding: 12px;
-                font-size: 14px;
-            }
-        }
-
-        /* Floating Shapes */
-        .floating-shape {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            z-index: 1;
-            animation: float 12s ease-in-out infinite;
-        }
-
-        /* Adjusted shapes to float below and around the form */
-        .shape-1,
-        .shape-2,
-        .shape-3,
-        .shape-4 {
-            position: absolute;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-
-        .shape-1 {
-            width: 100px;
-            height: 100px;
-            top: 100px;
-            left: 50px;
-            background: rgba(94, 255, 162, 0.2);
-            /* Green floating shape */
-        }
-
-        .shape-2 {
-            width: 120px;
-            height: 120px;
-            top: 80px;
-            right: 60px;
-            background: rgba(255, 94, 94, 0.2);
-            /* Red floating shape */
-        }
-
-        .shape-3 {
-            width: 100px;
-            height: 100px;
-            bottom: 80px;
-            left: 20px;
-            background: rgba(255, 228, 94, 0.2);
-            /* Yellow floating shape */
-        }
-
-        .shape-4 {
-            width: 140px;
-            height: 140px;
-            bottom: 60px;
-            right: 40px;
-            background: rgba(94, 145, 255, 0.2);
-            /* Blue floating shape */
-        }
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-20px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/color.php?color1=4090bc&color2=001d4a">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script>
 </head>
 
 <body>
 
-    <nav>
-        <nav>
-            <div class="back-btn" onclick="goBack()">
-                <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" alt="Back">
-                <h1>Back</h1>
-            </div>
-        </nav>
-        
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                // Select the back button div
-                const backButton = document.querySelector(".back-btn");
-        
-                // Attach event listener for click event
-                backButton.addEventListener("click", function () {
-                    window.location.href = 'earning.html'; // Ensure this path is correct
-                });
-            });
-        </script>
-        
-            </nav>
 
-    <div class="container">
-        <div class="info-box">
-            <p><strong>Important:</strong> 
-                Please send the exact deposit amount of <strong style="color: brown;">₨500</strong> to the following
-                Easypaisa number:</p>
-            <p><strong>Easypaisa Number:</strong> <span style="color: brown; font-weight: 100; font-size: x-large;">0345-1234567</span></p>
-            <p>After sending the payment, fill out the form below with the transaction details and upload the screenshot
-                as proof of payment.</p>        
-            </div>
 
-        <form id="deposit-form">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            </div>
-
-            <div class="form-group">
-                <label for="account-number">Account Number (11 digits):</label>
-                <input type="text" id="account-number" name="account-number" placeholder="Enter your account number"
-                    required pattern="\d{11}" maxlength="11">
-            </div>
-
-            <div class="form-group">
-                <label for="amount">Deposit Amount (₨):</label>
-                <input type="number" id="amount" name="amount" value="500" readonly>
-            </div>
-
-            <div class="form-group">
-                <label for="payment-method">Payment Method:</label>
-                <select id="payment-method" name="payment-method" required>
-                    <option value="easypaisa" selected>Easypaisa</option>
-                    <option value="jazzcash">JazzCash</option>
-                    <option value="bank-transfer">Bank Transfer</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="payment-details">Payment Details (Transaction ID):</label>
-                <input type="text" id="payment-details" name="payment-details"
-                    placeholder="Enter payment transaction ID" required>
-            </div>
-
-            <div class="form-group">
-                <label for="screenshot">Upload Payment Screenshot:</label>
-                <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
-            </div>
-
-            <button type="submit">Submit Deposit</button>
-        </form>
-      <div class="loader"></div>
-        </form>
+    <!-- scroll-to-top start -->
+    <div class="scroll-to-top">
+        <span class="scroll-icon">
+            <i class="fa fa-rocket" aria-hidden="true"></i>
+        </span>
     </div>
+    <!-- scroll-to-top end -->
 
-    <!-- Floating shapes for decoration -->
-    <div class="shape-1 floating-shape"></div>
-    <div class="shape-2 floating-shape"></div>
-    <div class="shape-3 floating-shape"></div>
-    <div class="shape-4 floating-shape"></div>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyDIXTdmPeQZeIS7mmA2E06vg_ow4ZWAOT0",
-            authDomain: "ytube-earn.firebaseapp.com",
-            projectId: "ytube-earn",
-            storageBucket: "ytube-earn.appspot.com",
-            messagingSenderId: "179827157577",
-            appId: "1:179827157577:web:bad466f447c859ecdeed98",
-            measurementId: "G-LK3NPV3L3E"
+    <div class="page-wrapper">
+        <div id="nav-placeholder"></div>
+        <script>
+            // Fetch the nav.html content and insert it into the #nav-placeholder div
+            fetch('nav.html')
+                .then(response => response.text())  // Convert the response to text
+                .then(data => {
+                    document.getElementById('nav-placeholder').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error loading the navigation:', error);
+                });
+        </script>
+        <section class="inner-page-hero bg_img"
+            data-background="https://www.eads.pk/assets/images/frontend/breadcrumb/64af8aaa994201689225898.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2 class="page-title">deposit</h2>
+                        <ul class="page-list">
+                            <li><a href="dashboard.html">Home</a></li>
+                            <li class="active">Deposit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <div class="cmn-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card custom--card">
+                            <div class="card-header card-header-bg">
+                                <h5 class="title">deposit</h5>
+                            </div>
+                            <div class="card-body  ">
+                                <form action="#" method="dialog" enctype="multi">
+                                    <input type="hidden" name="_token" value="A6SC2">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <p class="text-center mt-2">Pay <b class="text-success">500 PKR</b> , Please
+                                                pay <b class="text-success">500.00 PKR </b> for successful payment </p>
+                                            <h4 class="text-center mb-4">Please follow the instruction below</h4>
+
+                                            <p class="my-4 text-center">
+                                            <div style="text-align: center;">_اسلام علیکم</div>
+                                            <div style="text-align: center;">
+                                                <font size="5"><b>Ytube-earn</b></font>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <font size="5"><b>&nbsp;Easypaisa Account&nbsp;</b></font>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <font size="5" color="#9933cc">Account Name:</font>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <font size="5">Mehboob ul hassan&nbsp;</font>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <font size="5">
+                                                    <font color="#9933cc">Account number:</font>
+                                                </font>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <font color="#212529" size="5">03407852588</font><br>
+                                            </div>
+                                            <div style="text-align: center;"><br></div>
+                                            <div style="text-align: center;"><span style="color: var(--bs-body-color);">
+                                                    <font face="times new roman" style="" size="4"><i><br></i></font>
+                                                </span></div>
+                                            <div style="text-align: center;"><span style="color: var(--bs-body-color);">
+                                                    <font face="times new roman" style="" size="4"><i>Thank You for
+                                                            joining us!</i></font>
+                                                </span></div>
+                                            <div style="text-align: center;">
+                                                <font face="times new roman" size="4"><i>Ytube-earn convert your small
+                                                        investment into millions of rupees for you !</i></font>
+                                            </div>
+                                            <div style="text-align: center;">
+                                                <font face="times new roman" size="4"><i><br></i></font>
+                                            </div>
+                                            <div style="text-align: center;"><br></div>
+                                            </p>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Your Picture for the certificate And card</label>
+                                            <input type="file" class="form-control form--control"
+                                                name="please_" required
+                                                accept=" .jpg,  .jpeg,  .png,  .pdf, ">
+                                            <pre class="text--base mt-1">Supported mimes: jpg,jpeg,png,pdf</pre>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label">Payment sender Name || same as on Easypaisa
+                                                Account or any other bank ||</label>
+                                            <input type="text" class="form-control form--control"
+                                                name="sender"
+                                                value="" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">
+                                             Your city that we Put on Your card and certificare:   </label>
+                                            <input type="text" class="form-control form--control"
+                                                name="sender"
+                                                value="" required>
+                                        </div>
+                                       
+                                        <div class="form-group">
+                                            <label class="form-label">Account No: || same as on Easypaisa
+                                                Account or any other bank ||</label>
+                                            <input type="text" class="form-control form--control"
+                                                name="Account"
+                                                value="" required>
+                                        </div>
+                                             
+                                        <div class="form-group">
+                                            <label class="form-label">Enter Transaction iD</label>
+                                            <input type="text" class="form-control form--control"
+                                                name="enter" value="" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Please Upload Payment screenshot</label>
+                                            <input type="file" class="form-control form--control"
+                                                name="please_" required
+                                                accept=" .jpg,  .jpeg,  .png,  .pdf, ">
+                                            <pre class="text--base mt-1">Supported mimes: jpg,jpeg,png,pdf</pre>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn--base w-100">Pay Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        atOptions = {
+            'key' : '579befdb0f4c08486ea7d7dae419493d',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
         };
-    
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-    
-        const form = document.getElementById('deposit-form');
-        const loader = document.getElementById('loader');
-        const pendingMessage = document.getElementById('pending-message');
-    
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-            loader.style.display = 'block';
-    
-            const name = document.getElementById('name').value;
-            const accountNumber = document.getElementById('account-number').value;
-            const amount = document.getElementById('amount').value;
-            const paymentMethod = document.getElementById('payment-method').value;
-            const paymentDetails = document.getElementById('payment-details').value;
-    
-            db.collection("deposits").add({
-                name,
-                accountNumber,
-                amount,
-                paymentMethod,
-                paymentDetails,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => {
-                loader.style.display = 'none';
-                pendingMessage.style.display = 'block';
-            }).catch(error => {
-                loader.style.display = 'none';
-                alert('Error saving deposit: ' + error);
-            });
-        });
     </script>
+    <script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+   
+    <center> <h2 style="color: red;">Please deposit and then subscribe the Plan.
+        <br>without deposit we will not active Your package.</h2></center> 
 
+        <section class="cmn-section price">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
+                        <div class="single-price">
+                            <div class="part-top">
+                                <h3>Basic</h3>
+                                <h4>500.00 PKR<br></h4>
+                            </div>
+                            <div class="part-bottom">
+                                <ul>
+                                    <li>Plan Details</li>
+                                    <li>Daily Limit : 20000 PTC</li>
+                                    <li>Referral Need : NO</li>
+                                    <li>Plan Price : 500.00 PKR</li>
+                                    <li>Validity : Infinite Days</li>
+                                </ul>
+
+                                <button class="buyBtn" data-id="1">Subscribe Now</button>
+                            </div>
+                        </div>
+                    </div>
+                    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+                    crossorigin="anonymous"></script>
+                    <script type="text/javascript">
+                        atOptions = {
+                            'key' : '579befdb0f4c08486ea7d7dae419493d',
+                            'format' : 'iframe',
+                            'height' : 250,
+                            'width' : 300,
+                            'params' : {}
+                        };
+                    </script>
+                    <script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+                   
+        <div class="modal fade" id="BuyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <form method="post" action="#">
+                        <input type="hidden" name="_token" value="jzfaIuo4iTDEd6Vs6Vr5Yb00RrXzBYiEQjvSPZwt"> <input
+                            type="hidden" name="id">
+                        <div class="modal-header">
+                            <strong class="modal-title"> Confirmation</strong>
+
+                            <button type="button" class="close btn btn-sm" data-bs-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <strong>Insuficient deposit  Balance.  Please Make a deposit to Subscribe This Plan.</strong>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">CLose.</button>
+                            <button type="submit" class="btn btn--base">Yes</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="disription">
+        what will we give you in this Plan Price.
+        we will give you a company card like that.
+        and also we will give you a certificate of working in this company.
+        demos are given below:
+        <img src="https://i.postimg.cc/nzjm6ghZ/Red-Modern-School-ID-Card-1.png" class="img-fluid" alt="Responsive image">
+        <img src="https://i.postimg.cc/y60gcFJf/Blue-and-Gold-Elegant-Curved-Certificate-Of-Achievement-Certificate-1.png" class="img-fluid" alt="Responsive image">
+    </div>
+    
+    <div id="container-fbc16f9d1b8f28439910f7daa6892701"></div>
+  <!-- Modal Structure -->
+  <div class="modal fade" id="packageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Deposit Pending:</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+              Your request is Being processed Your Package will Automatically Activated  in 3 Hours. 
+              if You Have done a Real deposit.
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          </div>
+      </div>
+  </div>
+</div>
+<script>
+  document.querySelector('form').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent form submission and page reload
+
+      // Display the modal
+      $('#packageModal').modal('show');
+  });
+</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+crossorigin="anonymous"></script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '579befdb0f4c08486ea7d7dae419493d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+
+    <!-- footer section start -->
+    <footer class="footer-section">
+        <div class="footer-bottom">
+            <div class="container">
+                <hr>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 text-md-start text-center">
+                        <p> Ytube-earn. Copyright &copy; 2024 . All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section end -->
+
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://www.eads.pk/assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="https://www.eads.pk/assets/global/js/bootstrap.bundle.min.js"></script>
+
+    <!-- lightcase plugin -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/lightcase.js"></script>
+    <!-- custom select js -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/jquery.nice-select.min.js"></script>
+    <!-- slick slider js -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/slick.min.js"></script>
+    <!-- scroll animation -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/wow.min.js"></script>
+    <!-- dashboard custom js -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/app.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="https://www.eads.pk/assets/global/css/iziToast.min.css">
+    <script src="https://www.eads.pk/assets/global/js/iziToast.min.js"></script>
+
+   
 </body>
 
 </html>

@@ -1,297 +1,1023 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Login & Registration Form</title>
-  <link rel="stylesheet" href="style.css">
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> Ytube - Home</title>
+  <meta name="title" Content="Ytube.earn - Home">
+
+  <meta name="description" content="Ytube is a  best earning website.">
+  <meta name="keywords" content="ppc,pay per click,earn money,ppv,pey per view,paid click,earn per click">
+  <link rel="shortcut icon" href="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp type="image/x-icon">
+
+
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp">
+     <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Ytube - Home">
+
+  <meta itemprop="name" content="Ytube - Home">
+  <meta itemprop="description" content="">
+  <meta itemprop="image" content="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ytube website.">
+  <meta property="og:description" content="Ytube is best earning website ">
+  <meta property="og:image" content="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1180" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:url" content="https://Ytube-earn.netlify.app/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Bootstrap CSS -->
+  <link href="https://www.eads.pk/assets/global/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://www.eads.pk/assets/global/css/all.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/global/css/line-awesome.min.css" />
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/lightcase.css">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/vendor/animate.min.css">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/vendor/nice-select.css">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/vendor/slick.css">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/main.css">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/custom.css">
+
+  <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/color.php?color1=4090bc&color2=001d4a">
+  <!-- <script src="https://alwingulla.com/88/tag.min.js" data-zone="112327" async data-cfasync="false"></script> -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+  crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- Animated Shapes -->
-  <div class="shape shape1"></div>
-  <div class="shape shape2"></div>
-  <div class="shape shape3"></div>
-  <div class="shape shape4"></div>
 
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#" id="loginLabel">Login</a></li>
-      <li><a href="#" id="signupLabel">Signup</a></li>
-    </ul>
-  </nav>
-
-  <!-- Container with forms -->
-  <div class="container">
-    <!-- Message display div -->
-    <div id="message"></div>
-
-    <!-- Login Form -->
-    <div class="login form">
-      <header>Login</header>
-      <form action="#">
-        <input type="text" id='inUsr' placeholder="Enter your email">
-        <input type="password" id="inPass" placeholder="Enter your password">
-        <input type="button" class="button loginbtn" value="Login">
-        <span class="signup">
-          <a href="#" id="forgotLabel">Forgot password?</a>
-        </span>
-      </form>
-
-      <!-- Google Sign-In Button -->
-      <button class="google-btn" id="googleSignInBtn">
-        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" width="20">
-        Sign in with Google
-      </button>
-
-      <div class="signup">
-        <span>Don't have an account?
-          <a href="#" id="signupLabel">Signup</a>
-        </span>
+  <div class="preloader">
+    <div class="dl">
+      <div class="dl__container">
+        <div class="dl__corner--top"></div>
+        <div class="dl__corner--bottom"></div>
       </div>
-    </div>
-
-    <!-- Signup Form -->
-    <div class="registration form">
-      <header>Signup</header>
-      <form action="#">
-        <input type="text" id="name" placeholder="Enter your name">
-        <input type="text" id='username' placeholder="Enter your username">
-        <input type="text" id='email' placeholder="Enter your email">
-        <input type="text" id="phoneNumber" placeholder="Enter your phone number">
-        <input type="password" id='password' placeholder="Create a password">
-        <input type="button" class="button signupbtn" value="Signup">
-      </form>
-
-      <div class="signup">
-        <span>Already have an account?
-          <a href="#" id="loginLabel">Login</a>
-        </span>
-      </div>
-    </div>
-
-    <!-- Forgot Password Form -->
-    <div class="forgot form">
-      <header>Forgot Password</header>
-      <form action="#">
-        <input type="text" id="forgotinp" placeholder="Enter your email">
-        <input type="button" class="button forgotbtn" value="Send Reset Link">
-      </form>
-      <div class="signup">
-        <span>Remember your password?
-          <a href="#" id="loginLabel">Login</a>
-        </span>
-      </div>
+      <div class="dl__square"></div>
     </div>
   </div>
 
+  <!-- scroll-to-top start -->
+  <div class="scroll-to-top">
+    <span class="scroll-icon">
+      <i class="fa fa-rocket" aria-hidden="true"></i>
+    </span>
+  </div>
+  <!-- scroll-to-top end -->
 
-  <!-- Firebase JS SDK -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-  <script>
-    // Firebase initialization
-    const firebaseConfig = {
-      apiKey: "AIzaSyDIXTdmPeQZeIS7mmA2E06vg_ow4ZWAOT0",
-      authDomain: "ytube-earn.firebaseapp.com",
-      projectId: "ytube-earn",
-      storageBucket: "ytube-earn.appspot.com",
-      messagingSenderId: "179827157577",
-      appId: "1:179827157577:web:bad466f447c859ecdeed98",
-      measurementId: "G-LK3NPV3L3E"
-    };
+  <div class="page-wrapper">
+    <header class="header">
+      <div class="header__top">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="language d-flex align-items-center">
+              <i class="las la-globe-europe"></i>
+              <select class="nic-select langSel">
+                <option value="en" selected>English</option>
+                <option value="hn">Hindi</option>
+              </select>
+            </div>
+            <div class="right text-sm-end text-center">
+              <a href="http://ytube-earn.netlify.app/register.html" class="me-2"><i class="las la-sign-in-alt"></i>
+                Login</a>
+              <a href="http://ytube-earn.netlify.app/register.html"><i class="las la-user-plus"></i>
+                Registration</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__bottom">
+        <div class="container">
+          <nav class="navbar navbar-expand-xl p-0 align-items-center">
+            <a class="site-logo site-title" href="http://ytube-earn.netlify.app/"><img
+                src="https://i.postimg.cc/C5zyDN51/DALL-E-2024-10-23-11-38-57-A-simple-favicon-design-representing-ytube-earn-with-a-red-play-butto.webp" alt="site-logo"><span class="logo-icon"><i
+                  class="flaticon-fire"></i></span></a>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="menu-toggle"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav main-menu ms-auto">
+                <li><a href="http://ytube-earn.netlify.app/">Home</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-    const firebaseApp = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const firestore = firebase.firestore();
+    <!-- hero-section start -->
+    <section class="hero">
+      <div class="hero__slider">
+        <div class="single__slide bg_img"
+          data-background="https://i.postimg.cc/Zqs5W4t4/DALL-E-2025-01-04-04-43-36-A-visually-appealing-hero-section-image-for-a-website-named-YTUBE-EARN.webp">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="hero__content text-center">
 
-    // DOM elements
-    const loginForm = document.querySelector('.login');
-    const signupForm = document.querySelector('.registration');
-    const forgotForm = document.querySelector('.forgot');
-    const loginBtn = document.querySelector('.loginbtn');
-    const signupBtn = document.querySelector('.signupbtn');
-    const forgotBtn = document.querySelector('.forgotbtn');
+                  <h2 class="hero__title" data-animation="fadeInUp" data-delay=".3s">بِسْمِ اللّٰهِ الرَّحْمٰنِ
+                    الرَّحِیْمِ</h2>
+                  <p data-animation="fadeInUp" data-delay=".5s">اللہ کے نام سے شروع جو نہایت مہربان ، رحمت والاہے۔</p>
+                  <div class="btn-group mt-40" data-animation="fadeInUp" data-delay=".7s">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- single__slide end -->
+      </div><!-- hero__slider end -->
+    </section>
 
-    // Show forms
-    document.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (link.id === 'loginLabel') showForm(loginForm);
-        if (link.id === 'signupLabel') showForm(signupForm);
-        if (link.id === 'forgotLabel') showForm(forgotForm);
-      });
-    });
+    <!-- hero-section end -->
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet">
 
-    // Show form function
-    function showForm(form) {
-      document.querySelectorAll('.form').forEach(f => f.style.display = 'none');
-      form.style.display = 'block';
-    }
-
-    // Form validation
-    function validateForm(name, username, email, password, phone) {
-      if (!name || !username || !email || !password || !phone) {
-        showMessage('Please fill out all fields.');
-        return false;
+    <style>
+      html {
+        padding: 0px;
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        showMessage('Invalid email format.');
-        return false;
+      body {
+        margin: 0px
       }
 
-      if (password.length < 6) {
-        showMessage('Password must be at least 6 characters.');
-        return false;
+      .s-1-main {
+        width: 100%;
+        margin: 0px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
       }
 
-      return true;
-    }
+      .flex-box-text {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
 
-    // Show message function
-    function showMessage(message) {
-      const messageDiv = document.getElementById('message');
-      messageDiv.innerHTML = message;
-    }
-
-    // Forgot Password functionality
-    forgotBtn.addEventListener('click', () => {
-      const email = document.querySelector('#forgotinp').value.trim();
-
-      if (!email) {
-        showMessage('Please enter your email.');
-        return;
       }
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        showMessage('Invalid email format.');
-        return;
+      .flex-box-text .text {
+        color: #FFF;
+        font-family: Bevan;
+        font-size: 38px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 20px;
+
+        text-align: center
       }
 
-      auth.sendPasswordResetEmail(email)
-        .then(() => {
-          showMessage(`Password reset email has been sent to ${email}. Please check your inbox.`);
-        })
-        .catch((error) => {
-          switch (error.code) {
-            case 'auth/user-not-found':
-              showMessage('No user found with this email. Please check and try again.');
-              break;
-            case 'auth/invalid-email':
-              showMessage('Invalid email format. Please enter a valid email address.');
-              break;
-            default:
-              showMessage('Error sending password reset email: ' + error.message);
-          }
+      .centerStand {
+        object-fit: contain;
+        max-height: 400px;
+        width: 100%;
+      }
+
+      .space-even {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .cards {
+        width: 100%;
+        height: 580px;
+        max-width: 1210px;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content: center;
+        align-items: center;
+        padding: 30px 45px;
+        gap: 28px;
+        overflow: hidden;
+      }
+
+      .card {
+        background: white;
+        border-radius: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 30px;
+        width: 100%;
+      }
+
+      .profile-card-image {
+        border-radius: 70px;
+        border: 1.875px solid #FFF;
+        background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+        box-shadow: 0px 1.875px 5.625px 1.875px rgba(0, 0, 0, 0.92) inset, 0px 1.875px 4.375px 0px rgba(0, 0, 0, 0.21);
+        width: 97px;
+        height: 97px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      .card-content-container .online-text {
+        color: #FC0F0F;
+        font-family: Barlow;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 13px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+      }
+
+      .card-content-container .online-text::before {
+        border-radius: 4px;
+        background: #45F882;
+        width: 8px;
+        height: 8px;
+        content: "";
+        display: inline-block;
+      }
+
+      .card-content-container .text {
+        color: #000;
+        font-family: Barlow;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21.6px;
+        /* 120% */
+        text-transform: uppercase;
+      }
+
+
+      .card-content-container .text-2 {
+        color: #FC0F0F;
+        font-family: Barlow;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 29.75px;
+        letter-spacing: 1px;
+        align-self: end;
+      }
+
+      .card-content-container .text-3 {
+        color: #000;
+        font-family: Barlow;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 29.75px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        align-self: end;
+
+      }
+
+      .center {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
+        min-width: 100px;
+      }
+
+      .card-action {
+        border-radius: 6px;
+        background: #4491BA;
+        display: flex;
+        padding: 0px 45px 0px 45px;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 8px;
+        color: #FFF;
+        font-family: Barlow;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 22.75px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        height: 46.75px;
+        border: none;
+        align-items: center;
+        text-decoration: none;
+      }
+
+      .container-items-2-card {
+        display: none
+      }
+
+      @media only screen and (max-width: 679px) {
+        .card {
+          align-items: center;
+          flex-direction: column;
+          gap: 30px;
+          border-radius: 0px;
+        }
+
+        .cards {
+          height: 1277px !important;
+        }
+
+        .name-container {
+          min-width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .container-items-2-card {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          min-width: 100%;
+        }
+
+        .desktop {
+          display: none;
+        }
+      }
+
+      .full {
+        height: 100% !important;
+      }
+    </style>
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script><script type="text/javascript">
+      atOptions = {
+        'key' : '579befdb0f4c08486ea7d7dae419493d',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+    
+    <section style="background-image: url(https://www.eads.pk/assets/images/bg-main.png)" class="s-1-main">
+      <div
+        style="background-image: url(https://www.eads.pk/assets/images/fireworks.png);background-size: contain;background-position: center;"
+        class="s-1-main flex-box-text">
+        <div class="space-even">
+          <div class="items">
+            <div class="text">
+              TOP EARNER
+            </div>
+            <svg width="300" height="88" viewBox="0 0 581 88" style="margin-top:21px" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 17H132.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path d="M23.9329 35H132.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path d="M47.8369 53H132.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path d="M71.7695 71H132.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path
+                d="M187.935 71V17.6955H219.897V23.4215H194.39V41.4326H217.502V47.1587H194.39V71H187.935ZM237.407 17.6955V71H230.952V17.6955H237.407ZM250.349 71V17.6955H268.36C272.525 17.6955 275.943 18.4069 278.615 19.8297C281.287 21.2352 283.265 23.1699 284.549 25.6339C285.833 28.0978 286.475 30.9001 286.475 34.0408C286.475 37.1815 285.833 39.9664 284.549 42.3957C283.265 44.8249 281.296 46.7336 278.641 48.1217C275.986 49.4925 272.594 50.1779 268.464 50.1779H253.889V44.3477H268.256C271.102 44.3477 273.392 43.9313 275.127 43.0984C276.88 42.2655 278.147 41.0856 278.927 39.5586C279.726 38.0143 280.125 36.1751 280.125 34.0408C280.125 31.9065 279.726 30.0412 278.927 28.4449C278.129 26.8485 276.854 25.6165 275.101 24.7489C273.349 23.864 271.032 23.4215 268.152 23.4215H256.804V71H250.349ZM275.44 47.0546L288.558 71H281.062L268.152 47.0546H275.44ZM326.382 31.0216C326.07 28.3841 324.803 26.3366 322.582 24.8791C320.361 23.4215 317.637 22.6928 314.409 22.6928C312.05 22.6928 309.985 23.0745 308.215 23.838C306.462 24.6014 305.092 25.6512 304.103 26.9873C303.131 28.3234 302.645 29.8417 302.645 31.5421C302.645 32.965 302.983 34.1883 303.66 35.212C304.354 36.2184 305.239 37.06 306.315 37.7367C307.391 38.3961 308.519 38.9427 309.698 39.3765C310.878 39.7929 311.963 40.1313 312.952 40.3915L318.366 41.8491C319.754 42.2135 321.298 42.7167 322.999 43.3587C324.716 44.0007 326.356 44.877 327.918 45.9875C329.497 47.0806 330.798 48.4861 331.822 50.2039C332.846 51.9218 333.358 54.03 333.358 56.5286C333.358 59.409 332.603 62.0118 331.093 64.3369C329.601 66.6621 327.415 68.51 324.534 69.8808C321.671 71.2516 318.192 71.937 314.097 71.937C310.28 71.937 306.974 71.321 304.181 70.089C301.404 68.8571 299.218 67.1392 297.622 64.9356C296.043 62.7319 295.149 60.1725 294.941 57.2574H301.604C301.777 59.2702 302.454 60.936 303.634 62.2547C304.831 63.5561 306.341 64.5278 308.163 65.1698C310.002 65.7945 311.98 66.1068 314.097 66.1068C316.561 66.1068 318.773 65.7077 320.734 64.9095C322.695 64.094 324.248 62.9661 325.393 61.5259C326.538 60.0684 327.111 58.3679 327.111 56.4245C327.111 54.6547 326.616 53.2145 325.627 52.104C324.638 50.9934 323.337 50.0912 321.723 49.3971C320.11 48.703 318.366 48.0957 316.492 47.5752L309.933 45.7012C305.768 44.5039 302.471 42.7947 300.042 40.5737C297.613 38.3527 296.398 35.4463 296.398 31.8545C296.398 28.87 297.205 26.2672 298.819 24.0462C300.45 21.8078 302.636 20.0726 305.378 18.8407C308.137 17.5913 311.217 16.9667 314.618 16.9667C318.053 16.9667 321.107 17.5827 323.779 18.8146C326.452 20.0293 328.569 21.695 330.13 23.8119C331.709 25.9289 332.542 28.3321 332.629 31.0216H326.382ZM341.055 23.4215V17.6955H381.034V23.4215H364.272V71H357.817V23.4215H341.055Z"
+                fill="#FFF200" />
+              <path d="M580.96 17H448.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path d="M557.027 35H448.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path d="M533.123 53H448.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+              <path d="M509.19 71H448.48" stroke="#FFF200" stroke-width="4.07154" stroke-miterlimit="10" />
+            </svg>
+          </div>
+          <img src="https://www.eads.pk/assets/images/center_stand.png" class="centerStand" srcset="">
+          <a href="#" class="card-action" style="margin: 15px;">Bonus List</a>
+          <a href="#" class="card-action" style="margin: 15px;">Bonus Progress</a>
+          <a href="#" class="card-action" style="margin: 15px;">Reward Winners</a>
+        </div>
+      </div>
+    </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-4592812226967865"
+     data-ad-slot="7610942497"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script><script type="text/javascript">
+	atOptions = {
+		'key' : '579befdb0f4c08486ea7d7dae419493d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+  <section class="ptb-150">
+      <div class="container">
+        <div class="row justify-content-center"> <!-- Add justify-content-center class to center align the row -->
+          <div class="col-lg-6 wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.3s">
+          </div>
+          <div class="col-lg-6 mt-lg-0 mt-5 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.7s">
+            <div class="section-content text-center"> <!-- Add text-center class to center align the section content -->
+              <h2 class="section-title mb-20">About Us</h2>
+              <p>
+              <div style="text-align:center;"><span style="font-size:large;"><b>Welcome to Ytube-earn
+                    Pakistan</b>.</span>
+              </div>
+              <h3>
+                <font size="4" face="times new roman">Ytube.earn is an advertising agency that advertises different
+                  national
+                  and multination brand's businesses. We also provide earnings opportunities to people through viewing
+                  ads on our platform.We offer daily ads, We offer
+                  up to 10000 ads daily with short view time 20 seconds. Members may watch all ads within 200 minutes
+                  and may earn daily handsome income. There is
+                  not any limit for earning you may earn as much as you want. There are not any hidden charges, that you
+                  earn you receive in your account.If
+                  you have activated the package. WE OFFER
+                  BEST BUSINESS AMONG OTHERS.</font>
+              </h3>
+              <div>
+                <font size="4"><br /></font>
+              </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+    crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+    crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-format="fluid"
+    data-ad-layout-key="-fb+5w+4e-db+86"
+    data-ad-client="ca-pub-4592812226967865"
+    data-ad-slot="7610942497"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '579befdb0f4c08486ea7d7dae419493d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+    <!-- feature section start -->
+    <section class="pt-150 pb-150 section--bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-header text-center">
+              <h2 class="section-title">Benefits And Facilities</h2>
+              <p>Enjoy unlimited Benefits.</p>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row mb-none-30">
+          <div class="col-lg-4 col-md-6 mb-30 wow fadeInUp text-md-left text-center" data-wow-duration="0.3s"
+            data-wow-delay="0.3s">
+            <div class="feature-card">
+              <div class="feature-card__icon"><i class="fas fa-copy"></i></div>
+              <div class="feature-card__content">
+                <h4 class="title">Best Among Others</h4>
+                <p>We offer best business and best opportunities for lifetime passive income. 20 Levels ads
+                  Earnings for daily earnings without referral.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-30 wow fadeInUp text-md-left text-center" data-wow-duration="0.3s"
+            data-wow-delay="0.3s">
+            <div class="feature-card">
+              <div class="feature-card__icon"><i class="fas fa-lock"></i></div>
+              <div class="feature-card__content">
+                <h4 class="title">We&#039;re Secure</h4>
+                <p>we make sure that we have all the necessary tools and resources for our users data protection. Our
+                  website is fully secure from cyberattacks.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-30 wow fadeInUp text-md-left text-center" data-wow-duration="0.3s"
+            data-wow-delay="0.3s">
+            <div class="feature-card">
+              <div class="feature-card__icon"><i class="fas fa-chart-area"></i></div>
+              <div class="feature-card__content">
+                <h4 class="title">We&#039;re Profitable</h4>
+                <p>Ytube plan give you unlimited earnings through Uni-level marketing business plans. You generate
+                  more income than your investment with minimal efforts.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-30 wow fadeInUp text-md-left text-center" data-wow-duration="0.3s"
+            data-wow-delay="0.3s">
+            <div class="feature-card">
+              <div class="feature-card__icon"><i class="lab la-bitcoin"></i></div>
+              <div class="feature-card__content">
+                <h4 class="title">We Accept all payments</h4>
+                <p>We accept all methods of payments. Jazzcash, Easypaisa, Bank Accounts and cryptocurrencies payments
+                  for withdrawals and deposits.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-30 wow fadeInUp text-md-left text-center" data-wow-duration="0.3s"
+            data-wow-delay="0.3s">
+            <div class="feature-card">
+              <div class="feature-card__icon"><i class="fas fa-headset"></i></div>
+              <div class="feature-card__content">
+                <h4 class="title">Best Support</h4>
+                <p>Our support center help users to know about Ytube and gives fastest response 24/7. You may contact
+                  support center by submitting tickts. Or may contact us on whatsapp.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-30 wow fadeInUp text-md-left text-center" data-wow-duration="0.3s"
+            data-wow-delay="0.3s">
+            <div class="feature-card">
+              <div class="feature-card__icon"><i class="fas fa-globe-africa"></i></div>
+              <div class="feature-card__content">
+                <h4 class="title">We&#039;re Global</h4>
+                <p>You have opportunity to expand your network globally. Anyone can join us from worldwide we accept
+                  crypto payments and withdrawals globally.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+    crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-4592812226967865"
+     data-ad-slot="7610942497"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '579befdb0f4c08486ea7d7dae419493d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+    <div class="discrip">
+      <div class="disription">
+        what will we give you in this Plan Price.?
+        we will give you a company card like that.
+        and also we will give you a certificate of working in this company.
+        demos are given below:
+        <img src="https://i.postimg.cc/nzjm6ghZ/Red-Modern-School-ID-Card-1.png" class="img-fluid" alt="Responsive image">
+        <img src="https://i.postimg.cc/y60gcFJf/Blue-and-Gold-Elegant-Curved-Certificate-Of-Achievement-Certificate-1.png" class="img-fluid" alt="Responsive image">
+    </div>
+    </div>
+    <!-- feature section end -->
+    <div class="ptb-150 price">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-8">
+            <div class="section-header text-center">
+              <h2 class="section-title">Ytube package Offer</h2>
+              <p>Enjoy 25% discount and chance to win a smart phone till 25 October 2024</p>
+            </div>
+          </div>
+        </div>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+        crossorigin="anonymous"></script>
+        <script type="text/javascript">
+          atOptions = {
+            'key' : '579befdb0f4c08486ea7d7dae419493d',
+            'format' : 'iframe',
+            'height' : 250,
+            'width' : 300,
+            'params' : {}
+          };
+        </script>
+        <script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+   <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-format="fluid"
+        data-ad-layout-key="-fb+5w+4e-db+86"
+        data-ad-client="ca-pub-4592812226967865"
+        data-ad-slot="7610942497"></ins>
+   <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>     <div class="row g-0">
+        <div class="col-xl-6 bg_img video-thumb-two min-height--block d-none d-xl-block"
+          data-background="https://www.eads.pk/assets/images/frontend/counter/64af8ff9c59a41689227257.jpg">
+        </div>
+        <div class="col-xl-6 pt-120 pb-120 bg--base text-md-left text-center">
+          <div class="overview-area">
+            <h2 class="section-title">Best Place To Earn Money Online</h2>
+            <p>passive income, Up to 20000 Ads daily, Daily withdraw.</p>
+            <div class="row mb-none-30 mt-50">
+              <div class="col-md-3 col-6 mb-30">
+                <div class="counter-card">
+                  <div class="counter-card__icon text-white">
+                    <i class="fas fa-ad"></i>
+                  </div>
+                  <div class="counter-card__content">
+                    <span class="count-num text-white">568K+</span>
+                    <p class="para-white">Advertisement</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6 mb-30">
+                <div class="counter-card">
+                  <div class="counter-card__icon text-white">
+                    <i class="fas fa-link"></i>
+                  </div>
+                  <div class="counter-card__content">
+                    <span class="count-num text-white">20M+</span>
+                    <p class="para-white">Impression</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6 mb-30">
+                <div class="counter-card">
+                  <div class="counter-card__icon text-white">
+                    <i class="fas fa-users"></i>
+                  </div>
+                  <div class="counter-card__content">
+                    <span class="count-num text-white">200K+</span>
+                    <p class="para-white">Users</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-6 mb-30">
+                <div class="counter-card">
+                  <div class="counter-card__icon text-white">
+                    <i class="far fa-money-bill-alt"></i>
+                  </div>
+                  <div class="counter-card__content">
+                    <span class="count-num text-white">Rs.100M+</span>
+                    <p class="para-white">Withdraw</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pt-150 pb-150 section--bg">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-header text-center">
+              <h2 class="section-title">Frequently Asked Question</h2>
+              <p>Leadership is learned, earned, and discerned.</p>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="accordion cmn-accordion" id="accordionExample">
+              <div class="card">
+                <div class="card-header" id="heading0">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse0" aria-expanded="false" aria-controls="collapse0">
+                    <i class="las la-question-circle"></i>
+                    <span>What is Ytube-earn?</span>
+                  </button>
+                </div>
+
+                <div id="collapse0" class="collapse  show " aria-labelledby="heading0"
+                  data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>ytube-earn is advertising agency which advertise different national and multination brands
+                      businesses.
+                      We also provide earnings opportunities to peoples throw viewing ads on our platform same like TV
+                      and social media ads. You have to simply invest in it and then start your earnings.</p>
+                  </div>
+                </div>
+              </div><!-- card end -->
+              <div class="card">
+                <div class="card-header" id="heading1">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    <i class="las la-question-circle"></i>
+                    <span>How many ads we offer daily?</span>
+                  </button>
+                </div>
+
+                <div id="collapse1" class="collapse " aria-labelledby="heading1" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>Eads offer 20000 ads daily with 20 seconds view time. Ad price Rs.0.5</p>
+                  </div>
+                </div>
+              </div><!-- card end -->
+              <div class="card">
+                <div class="card-header" id="heading2">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    <i class="las la-question-circle"></i>
+                    <span>How much I may earn from ads?</span>
+                  </button>
+                </div>
+
+                <div id="collapse2" class="collapse " aria-labelledby="heading2" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>We offer handsome income for viewing ads if you will view one ad you will earn Rs.0.5. You may
+                      earn Rs.2000 to Rs.20000 daily through ads. It depends on your working.</p>
+                  </div>
+                </div>
+              </div><!-- card end -->
+              <div class="card">
+                <div class="card-header" id="heading4">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    <i class="las la-question-circle"></i>
+                    <span>What mean by plan details ?</span>
+                  </button>
+                </div>
+
+                <div id="collapse4" class="collapse " aria-labelledby="heading4" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>The package has different features we define these features In Plan details:
+
+                      Daily limit: How much ads you can view Daily
+
+                      Referral Need: Ytube-earn has no need of reffrels
+                      so donot worry about that.
+
+                      Plan price: The plan Price is fixed 500 Rupees..
+
+                      Validation: The package is activated for life time.</p>
+                  </div>
+                </div>
+              </div><!-- card end -->
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-4592812226967865"
+     data-ad-slot="7610942497"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '579befdb0f4c08486ea7d7dae419493d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+              <div class="card">
+                <div class="card-header" id="heading6">
+                  <button class="btn btn-link btn-block text-left collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    <i class="las la-question-circle"></i>
+                    <span>Can i withdraw Money without Activating my Package..</span>
+                  </button>
+                </div>
+
+                <div id="collapse6" class="collapse " aria-labelledby="heading6" data-bs-parent="#accordionExample">
+                  <div class="card-body">
+                    <p>No You cannot Withdraw Any money Before Activating Your Package.</p>
+                  </div>
+                </div>
+              </div><!-- card end -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-4592812226967865"
+     data-ad-slot="7610942497"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '579befdb0f4c08486ea7d7dae419493d',
+		'format' : 'iframe',
+		'height' : 250,
+		'width' : 300,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+    <!-- testimonial section start -->
+    <section class="pt-150 pb-150">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="section-header text-center">
+              <h2 class="section-title">What People Says</h2>
+              <p>Ytube-earn leaders reviews</p>
+            </div>
+          </div>
+        </div><!-- row end -->
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="testimonial-slider">
+              <div class="single-slide">
+                <div class="testimonial-card">
+                  <div class="thumb"><img
+                      src="https://www.eads.pk/assets/images/frontend/testimonial/65c0997a3be311707121018.png"
+                      alt="image"></div>
+                  <h5 class="name">Sadaf rubab</h5>
+                  <span class="designation">Member</span>
+                  <p>Assalamualaikum
+                    Ytube-earn the best platform of daily base earning.
+                    Its provide to groom my self.
+                    Its gives me a best opportunity to recognize myself.
+                    I really appreciate its owner and my senior.
+                    Allah gives its owner more and more success. Ameeeeeen.
+                    Regards
+                    Sadaf Rubab</p>
+                </div>
+              </div>
+              <div class="single-slide">
+                <div class="testimonial-card">
+                  <div class="thumb"><img
+                      src="https://www.eads.pk/assets/images/frontend/testimonial/65c099259ffca1707120933.png"
+                      alt="image"></div>
+                  <h5 class="name">Abdullah</h5>
+                  <span class="designation">Member</span>
+                  <p>Assalam u alikum Ytube-earn is a 100% real plate form hay. Allahamdullilah may nay is 500
+                    investment ki 1 week
+                    may 10000 earn krlia hay
+                    Abdullah</p>
+                </div>
+              </div>
+              <div class="single-slide">
+                <div class="testimonial-card">
+                  <div class="thumb"><img
+                      src="https://www.eads.pk/assets/images/frontend/testimonial/65c098ed9f73c1707120877.png"
+                      alt="image"></div>
+                  <h5 class="name">Jaweria kazmi</h5>
+                  <span class="designation">Member</span>
+                  <p>Ytube-earn is trustworthy platform.. I&#039;m earning from this website, they provide authentic
+                    work
+                    👍👍👍 scam or fraud BHT zYada hora hai shukaar hai menyy is platform Sy APNI invested money BH earn
+                    krli Hai or daily ka 2000 tak earn kar pa rha hon.</p>
+                </div>
+              </div>
+              <div class="single-slide">
+                <div class="testimonial-card">
+                  <div class="thumb"><img
+                      src="https://www.eads.pk/assets/images/frontend/testimonial/65c098b7a2f451707120823.png"
+                      alt="image"></div>
+                  <h5 class="name">Sajid Ali</h5>
+                  <span class="designation">Member</span>
+                  <p>Ytube-earn Alhumdulilah ak bht hi real and authentic plateform hy ...is sy phly to bs hr jga invest
+                    hi
+                    kia kuch earn ni but Ytube-earn me bht choti si amount invest kr k bht achi earning kr ri hoo eadds
+                    is
+                    very best thnku so much ytube-earn.</p>
+                </div>
+              </div>
+              <div class="single-slide">
+                <div class="testimonial-card">
+                  <div class="thumb"><img
+                      src="https://www.eads.pk/assets/images/frontend/testimonial/65c09876274f01707120758.png"
+                      alt="image"></div>
+                  <h5 class="name">Islamic malomat</h5>
+                  <span class="designation">Member</span>
+                  <p>Asalam o alikum
+                    ytube-earn is a best earning platform.These are not scams.
+                    Alhamdulillah is 110% original earning platform. ytube-earn is giving many best benefits to people.
+                    ytube-earn Alhumdulillah main khud work kar raha hu
+                    Ma na 28 days ma 50 thousand earning ke ha
+                    ...Bhut Best Platform ha ...Low investment... Unlimited Earning, More Rewards,No withdraw
+                    limit...Lifetime work
+                    ...Ytube-earn sy main Best Earn kar Raha hun...Alhumdulillah Abi tak is platform sy koi b negative
+                    reaction nei hoa Or Alhumdulillah ho ga b nei...
+                    Aj he join kara ap be harmi tara lakho kamio
+                    Thanks you ytube-earn</p>
+                </div>
+              </div>
+              <div class="single-slide">
+                <div class="testimonial-card">
+                  <div class="thumb"><img
+                      src="https://www.eads.pk/assets/images/frontend/testimonial/65c097a4615ae1707120548.png"
+                      alt="image"></div>
+                  <h5 class="name">Ashii khan</h5>
+                  <span class="designation">Member</span>
+                  <p>ytube-earn is a best best best platform.Allhmdullilah m ny apni life m es sy AchA platform ni dykha
+                    mhnta
+                    kro to sb mil jta h and m ny apni mhnt ay yhn sy 3 month m 2 lac sy zyada earn Karliya hai.Allah ka
+                    bht shukr h usny mjhy asy platform sy nawazw Jo waqy e m bht best ha
+                    MashAllh sy 🥰❤️</p>
+                </div>
+              </div>
+            </div><!-- testimonial-slider end -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+     crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-fb+5w+4e-db+86"
+     data-ad-client="ca-pub-4592812226967865"
+     data-ad-slot="7610942497"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+    <!-- testimonial section end -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+    crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      atOptions = {
+        'key' : '579befdb0f4c08486ea7d7dae419493d',
+        'format' : 'iframe',
+        'height' : 250,
+        'width' : 300,
+        'params' : {}
+      };
+    </script>
+    <script type="text/javascript" src="//condemnfundraiserjune.com/579befdb0f4c08486ea7d7dae419493d/invoke.js"></script>
+    <!-- footer section start -->
+    <footer class="footer-section">
+      <div class="footer-bottom">
+        <div class="container">
+          <hr>
+          <div class="row">
+            <div class="col-lg-4 col-md-4 text-md-start text-center">
+              <p> Ytube-earn. Copyright &copy; 2024 . All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- footer section end -->
+
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://www.eads.pk/assets/global/js/jquery-3.6.0.min.js"></script>
+    <script src="https://www.eads.pk/assets/global/js/bootstrap.bundle.min.js"></script>
+
+    <!-- lightcase plugin -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/lightcase.js"></script>
+    <!-- custom select js -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/jquery.nice-select.min.js"></script>
+    <!-- slick slider js -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/slick.min.js"></script>
+    <!-- scroll animation -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/vendor/wow.min.js"></script>
+    <!-- dashboard custom js -->
+    <script src="https://www.eads.pk/assets/templates/basic//js/app.js"></script>
+
+
+    <!-- <script type="text/javascript">
+      (function ($) {
+        "use strict";
+        $('.buyBtn').click(function () {
+          var modal = $('#BuyModal');
+          modal.find('input[name=id]').val($(this).data('id'));
+          modal.modal('show');
         });
-    });
+      })(jQuery);
+    </script> -->
 
-    signupBtn.addEventListener('click', () => {
-      const name = document.querySelector('#name').value.trim();
-      const username = document.querySelector('#username').value.trim();
-      const email = document.querySelector('#email').value.trim();
-      const password = document.querySelector('#password').value.trim();
-      const phone = document.querySelector('#phoneNumber').value.trim();
 
-      // Basic validation
-      if (!name || !username || !email || !password || !phone) {
-        showMessage('Please fill out all fields.');
-        return;
-      }
+    <link rel="stylesheet" href="https://www.eads.pk/assets/global/css/iziToast.min.css">
+    <script src="https://www.eads.pk/assets/global/js/iziToast.min.js"></script>
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(email)) {
-        showMessage('Invalid email format.');
-        return;
-      }
-
-      if (password.length < 6) {
-        showMessage('Password must be at least 6 characters.');
-        return;
-      }
-
-      // Firebase signup
-      auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-
-          // Send email verification
-          user.sendEmailVerification().then(() => {
-            showMessage(`A verification email has been sent to ${email}. Please verify your email and then log in.`);
-          });
-
-          // Save user info to Firestore
-          return firestore.collection('users').doc(user.uid).set({
-            name: name,
-            username: username,
-            email: email,
-            phone: phone,
-          });
-        })
-        .then(() => {
-          showForm(loginForm);  // Switch to login form after signup
-        })
-        .catch((error) => {
-          showMessage('Error signing up: ' + error.message);
-        });
-    });
-
-    // Login button functionality
-    loginBtn.addEventListener('click', () => {
-      const email = document.querySelector('#inUsr').value.trim();
-      const password = document.querySelector('#inPass').value.trim();
-
-      if (!email || !password) {
-        showMessage('Please enter both email and password.');
-        return;
-      }
-
-      auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          if (user.emailVerified) {
-            location.href = 'earning.html';
-          } else {
-            showMessage('Please verify your email before logging in.');
-          }
-        })
-        .catch((error) => {
-          if (error.code === 'auth/user-not-found') {
-            showMessage('No user found with this email. Please signup first.');
-          } else if (error.code === 'auth/wrong-password') {
-            showMessage('Incorrect password. Please check the password you entered.');
-          } else if (error.code === 'auth/invalid-email') {
-            showMessage('Invalid email format. Please enter a valid email address.');
-          } else if (error.message.includes('INVALID_LOGIN_CREDENTIALS')) {
-            showMessage('Invalid login credentials. Please check your email and password.');
-          } else {
-            showMessage('Error logging in: ' + error.message);
-          }
-        });
-    });
-
-    // Google Sign-In functionality
-    googleSignInBtn.addEventListener('click', async function () {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      try {
-        const result = await auth.signInWithPopup(provider);
-        alert('Google sign-in successful!');
-        location.href = 'earning.html';
-      } catch (error) {
-        alert(error.message);
-      }
-    });
-   
-  </script>
-  
 </body>
 
 </html>
