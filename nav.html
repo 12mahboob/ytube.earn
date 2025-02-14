@@ -1,86 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar</title>
-    <!-- W3.CSS -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- Custom Styles -->
-    <style>
-        /* Ensure header is above all other elements */
-        header {
-            z-index: 1000; /* High z-index to ensure it's on top */
-            position: fixed; /* Fixed positioning to keep it at the top */
-            width: 100%; /* Full width */
-            top: 0; /* Stick to the top */
-        }
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo img {
-            height: 30px; /* Smaller logo */
-            width: 30px; /* Smaller logo */
-            border-radius: 50%;
-            margin-right: 8px; /* Adjust spacing */
-        }
-
-        .logo span {
-            color: white;
-            font-size: 1.2rem; /* Smaller font size */
-            font-weight: bold;
-        }
-
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header class="w3-container w3-blue">
-        <div class="w3-bar">
-            <!-- Logo -->
-            <a href="dashboard.html" class="w3-bar-item w3-button logo" style="text-decoration: none; color: white; font-weight: bold; font-size: 1.2rem;   display: flex; align-items: center;">
-                <img src="https://iili.io/2bjFecX.jpg" alt="site-logo">
-                <span>PixAds</span>
-            </a>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="w3-bar-item w3-button w3-right w3-hide-large w3-hover-none" onclick="toggleMenu()">
-                &#9776; <!-- Hamburger icon -->
-            </button>
-
-            <!-- Navigation Links -->
-            <div id="navLinks" class="w3-bar-block w3-hide w3-hide-large w3-show-large">
-                <a href="dashboard.html" class="w3-bar-item w3-button">Dashboard</a>
-                <a href="deposit.html" class="w3-bar-item w3-button">Deposit Now</a>
-                <a href="withdraw.html" class="w3-bar-item w3-button">Withdraw</a>
-                <a href="ptc.html" class="w3-bar-item w3-button">Earn</a>
-                <a href="ptc.html" class="w3-bar-item w3-button">Bonus</a>
-            </div>
-
-            <!-- Desktop Navigation Links -->
-            <div class="w3-right w3-hide-small">
-                <a href="dashboard.html" class="w3-bar-item w3-button">Dashboard</a>
-                <a href="deposit.html" class="w3-bar-item w3-button">Deposit Now</a>
-                <a href="withdraw.html" class="w3-bar-item w3-button">Withdraw</a>
-                <a href="ptc.html" class="w3-bar-item w3-button">Earn</a>
-                <a href="ptc.html" class="w3-bar-item w3-button">Bonus</a>
-            </div>
+<header class="custom-header">
+    <div class="custom-header-bottom" style="background-color: #001D4A;">
+        <div class="custom-container">
+            <nav class="custom-navbar custom-navbar-expand p-0 align-items-center">
+                <a class="custom-site-logo custom-site-title" href="dashboard.html">
+                    <img src="https://iili.io/2bjFecX.jpg" alt="site-logo">
+                    <span class="custom-logo-icon"><i class="flaticon-fire"></i></span>
+                </a>
+                <div class="custom-navbar-collapse">
+                    <ul class="custom-navbar-nav custom-main-menu ms-auto">
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="deposit.html">Deposit</a></li>
+                        <li><a href="withdraw.html">Withdraw</a></li>
+                        <li><a href="ptc.html">Earn</a></li>
+                        <li><a href="ptc.html">Bonus</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </header>
+    </div>
+</header>
+<style>
+    /* Header Styles */
+.custom-header {
+    width: 100%;
+    background-color: #001D4A;
+}
 
+.custom-header-bottom {
+    padding: 10px 0;
+}
 
-    <!-- Script for Mobile Menu Toggle -->
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            if (navLinks.classList.contains("w3-show")) {
-                navLinks.classList.remove("w3-show");
-            } else {
-                navLinks.classList.add("w3-show");
-            }
-        }
-    </script>
-</body>
-</html>
+.custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.custom-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-site-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.custom-site-logo img {
+    max-height: 40px;
+    margin-right: 10px;
+}
+
+.custom-logo-icon {
+    font-size: 20px;
+    color: #fff;
+}
+
+.custom-navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.custom-navbar-nav {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-navbar-nav li {
+    margin-left: 20px;
+}
+
+.custom-navbar-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px;
+}
+
+.custom-navbar-nav a:hover {
+    color: #ff4e00;
+    background-color: #003366;
+    border-radius: 5px;
+}
+
+/* When screen size is 991px or below */
+@media (max-width: 991px) {
+    .custom-navbar-collapse {
+        display: flex !important; /* Keep the nav items visible */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        margin-top: 10px;
+        background-color: #001D4A;
+    }
+
+    .custom-navbar-nav {
+        
+        flex-direction: row;
+        width: 100%;
+        padding: 0;
+    }
+
+    .custom-navbar-nav li {
+
+        margin-left: 0;
+        margin-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .custom-navbar-nav a {
+        padding: 4px;
+        font-size: 12px;
+        display: block;
+        width: 100%;
+        
+    }
+
+    .custom-navbar-nav a:hover {
+        color: #ff4e00;
+        background-color: #003366;
+        border-radius: 5px;
+    }
+}
+
+</style>

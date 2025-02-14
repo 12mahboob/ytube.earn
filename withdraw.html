@@ -80,22 +80,14 @@
     </div>
     <!-- scroll-to-top end -->
 
-    <div class="page-wrapper">
 
-        <div id="nav-placeholder"></div>
+
 
         <div class="page-wrapper">
-            <script>
-                // Fetch the nav.html content and insert it into the #nav-placeholder div
-                fetch('nav.html')
-                    .then(response => response.text())  // Convert the response to text
-                    .then(data => {
-                        document.getElementById('nav-placeholder').innerHTML = data;
-                    })
-                    .catch(error => {
-                        console.error('Error loading the navigation:', error);
-                    });
-            </script>
+         <script src="nav.js"></script>
+        <!-- Navigation Placeholder -->
+        <div id="nav-placeholder"></div>
+
             <section class="inner-page-hero bg_img"
                 data-background="https://www.eads.pk/assets/images/frontend/breadcrumb/64af8aaa994201689225898.jpg">
                 <div class="container">

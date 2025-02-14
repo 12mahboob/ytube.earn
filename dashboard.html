@@ -10,27 +10,23 @@
     <meta name="title" Content="PixAds - Dashboard">
     <meta name="description" content="PixAds is a  best earning website.">
     <meta name="keywords" content="ppc,pay per click,earn money,ppv,pey per view,paid click,earn per click">
-    <link rel="shortcut icon"
-        href="https://iili.io/2bjFecX.jpg" type="
+    <link rel="shortcut icon" href="https://iili.io/2bjFecX.jpg" type="
         image/x-icon">
 
 
-    <link rel="apple-touch-icon"
-        href="https://iili.io/2bjFecX.jpg">
+    <link rel="apple-touch-icon" href="https://iili.io/2bjFecX.jpg">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="PixAds - Home">
 
     <meta itemprop="name" content="PixAds Home">
     <meta itemprop="description" content="">
-    <meta itemprop="image"
-        content="https://iili.io/2bjFecX.jpg">
+    <meta itemprop="image" content="https://iili.io/2bjFecX.jpg">
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="PixAds website.">
     <meta property="og:description" content="PixAds is best earning website ">
-    <meta property="og:image"
-        content="https://iili.io/2bjFecX.jpg" />
+    <meta property="og:image" content="https://iili.io/2bjFecX.jpg" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1180" />
     <meta property="og:image:height" content="600" />
@@ -38,6 +34,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <!-- Bootstrap CSS -->
+
     <link href="https://www.eads.pk/assets/global/css/bootstrap.min.css" rel="stylesheet">
 
     <link href="https://www.eads.pk/assets/global/css/all.min.css" rel="stylesheet">
@@ -57,7 +54,10 @@
     <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/custom.css">
 
     <link rel="stylesheet" href="https://www.eads.pk/assets/templates/basic/css/color.php?color1=4090bc&color2=001d4a">
-   
+    <!-- Tailwind css -->
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
 </head>
 
 <body>
@@ -85,18 +85,19 @@
     <div class="page-wrapper">
 
         <div id="nav-placeholder"></div>
-        <script>
-            // Fetch the nav.html content and insert it into the #nav-placeholder div
-            fetch('nav.html')
-                .then(response => response.text())  // Convert the response to text
-                .then(data => {
-                    document.getElementById('nav-placeholder').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading the navigation:', error);
-                });
-        </script>
+        <script src="nav.js"></script>
+        <style>
+            /* Add hover effect to the arrows */
+            a i {
+                transition: transform 0.3s ease;
+            }
 
+            /* Rotate the arrow upwards on hover */
+            a:hover i {
+                transform: rotate(-45deg);
+                /* Rotate arrow icon */
+            }
+        </style>
 
         <section class="inner-page-hero bg_img"
             data-background="https://www.eads.pk/assets/images/frontend/breadcrumb/64af8aaa994201689225898.jpg">
@@ -112,145 +113,170 @@
                 </div>
             </div>
         </section>
-        <div class="container">
-            <div class="row">
-                <!-- First Widget Column: Watch Ads -->
-                <div class="col-md-3 mb-4">
-                    <div class="widget-two h-100 box--shadow2 b-radius--5 bg--white">
-                        <i class="fas fa-dollar-sign overlay-icon text--primary"></i>
-                        <div class="widget-two__icon b-radius--5 bg--primary">
+        <div class="container mx-auto p-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Watch Ads Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
                             <i class="fas fa-dollar-sign"></i>
                         </div>
-                        <!-- Balance Display in HTML on the Dashboard Page -->
-                        <div class="widget-two__content">
-                            <h2 id="balance">0.00 PKR</h2> <!-- Set initial value as 0.00 PKR -->
-                            <div class="d-flex flex-wrap justify-content-between position-relative">
-                                <p>Balance from Watching Ads</p>
-                                <a href="ptc.html" class="btn cmn-btn">Watch Ads <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- JavaScript to Retrieve and Display Balance -->
-                        <script>
-                            // Retrieve balance from localStorage
-                            const balance = localStorage.getItem('balance');
-
-                            // Check if balance exists in localStorage and display it
-                            if (balance !== null) {
-                                document.getElementById('balance').textContent = `${balance} PKR`;
-                            } else {
-                                document.getElementById('balance').textContent = "0.00 PKR"; // Default if no balance found
-                            }
-                        </script>
-
+                        <h2 id="balance" class="text-xl font-bold">0.00 PKR</h2>
                     </div>
+                    <p class="mt-2 text-gray-600">Balance from Watching Ads</p>
+                    <a href="ptc.html" class="block mt-4 bg-primary text-white py-2 px-4 rounded text-center">Watch Ads
+                        <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
-                crossorigin="anonymous"></script>
-                <script type="text/javascript">
-                    atOptions = {
-                        'key' : '579befdb0f4c08486ea7d7dae419493d',
-                        'format' : 'iframe',
-                        'height' : 250,
-                        'width' : 300,
-                        'params' : {}
-                    };
-                </script>
-                <!-- Second Widget Column: Claim Bonus -->
-                <div class="col-md-3 mb-4">
-                    <div class="widget-two h-100 box--shadow2 b-radius--5 bg--white">
-                        <i class="fas fa-gift overlay-icon text--primary"></i>
-                        <div class="widget-two__icon b-radius--5 bg--primary">
+
+                <!-- Claim Bonus Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
                             <i class="fas fa-gift"></i>
                         </div>
-                        <div class="widget-two__content">
-                            <h2 class="bal">300.00 PKR</h2>
-                            <div class="d-flex flex-wrap justify-content-between position-relative">
-                                <p>Claim your daily bonus here</p>
-                                <a href="ptc.html" class="btn cmn-btn">Claim Bonus <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
+                        <h2 class="text-xl font-bold">300.00 PKR</h2>
                     </div>
-                </div>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
-                crossorigin="anonymous"></script>
-                <!-- Second Widget Column: Hourly Faucet -->
-                <div class="col-md-3 mb-3">
-                    <div class="widget-two h-100 box--shadow2 b-radius--5 bg--white">
-                        <i class="fas fa-tint overlay-icon text--primary"></i> <!-- Icon Overlay -->
-                        <div class="widget-two__icon b-radius--5 bg--primary">
-                            <i class="fas fa-tint"></i> <!-- Main Icon -->
-                        </div>
-                        <div class="widget-two__content">
-                            <h2 class="bal">50 PKR</h2> <!-- Placeholder for balance -->
-                            <div class="d-flex flex-wrap justify-content-between position-relative">
-                                <p>Claim your hourly faucet bonus here</p>
-                                <a href="ptc.html" class="btn cmn-btn">Claim Hourly Faucet <i
-                                        class="fas fa-arrow-circle-right"></i></a> <!-- Redirect Button -->
-                            </div>
-                        </div>
-                    </div>
+                    <p class="mt-2 text-gray-600">Claim your daily bonus here</p>
+                    <a href="ptc.html" class="block mt-4 bg-primary text-white py-2 px-4 rounded text-center">Claim
+                        Bonus <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
 
-                <!-- Third Widget Column: Choose Plan -->
-                <div class="col-md-3 mb-4">
-                    <div class="widget-two h-100 box--shadow2 b-radius--5 bg--white">
-                        <i class="fas fa-tags overlay-icon text--primary"></i>
-                        <div class="widget-two__icon b-radius--5 bg--primary">
+                <!-- Hourly Faucet Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h2 class="text-xl font-bold">50 PKR</h2>
+                    </div>
+                    <p class="mt-2 text-gray-600">Claim your hourly faucet bonus here</p>
+                    <a href="ptc.html" class="block mt-4 bg-primary text-white py-2 px-4 rounded text-center">Claim
+                        Hourly Faucet <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+
+                <!-- Choose Plan Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
                             <i class="fas fa-tags"></i>
                         </div>
-                        <div class="widget-two__content">
-                            <h2>No Plan</h2>
-                            <div class="d-flex flex-wrap justify-content-between position-relative">
-                                <p>Upgrade plan to withdraw</p>
-                                <a href="deposit.html" class="btn cmn-btn">Choose Plan <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
+                        <h2 class="text-xl font-bold">No Plan</h2>
                     </div>
+                    <p class="mt-2 text-gray-600">Upgrade plan to withdraw</p>
+                    <a href="deposit.html" class="block mt-4 bg-primary text-white py-2 px-4 rounded text-center">Choose
+                        Plan <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
-                crossorigin="anonymous"></script>               
-                <!-- Fourth Widget Column (Two Smaller Widgets): Total Deposit and Withdraw -->
-                <div class="flex mb-30">
-                    <div class="row">
-                        <!-- Total Deposit -->
-                        <div class="col-lg-12 col-md-6 mb-30">
-                            <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                                <div class="widget-three__icon b-radius--rounded bg--primary">
-                                    <i class="far fa-credit-card"></i>
-                                </div>
-                                <div class="widget-three__content">
-                                    <h2>00.00 PKR</h2>
-                                    <p>Total Deposit</p>
-                                    <a href="deposit.html" class="btn cmn-btn mt-2">Deposit History <i
-                                            class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
+            </div>
+
+            <!-- Deposit & Withdraw Widgets -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                <div
+                    class="bg-white shadow-lg rounded-lg p-4 text-center transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
+                        <i class="far fa-credit-card"></i>
+                    </div>
+                    <h2 class="text-xl font-bold mt-2">00.00 PKR</h2>
+                    <p class="text-gray-600">Total Deposit</p>
+                    <a href="deposit.html" class="block mt-4 bg-primary text-white py-2 px-4 rounded">Deposit History <i
+                            class="fas fa-arrow-circle-right"></i></a>
+                </div>
+                <div
+                    class="bg-white shadow-lg rounded-lg p-4 text-center transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
+                        <i class="las la-university"></i>
+                    </div>
+                    <h2 class="text-xl font-bold mt-2">00.00 PKR</h2>
+                    <p class="text-gray-600">Total Withdraw</p>
+                    <a href="withdraw.html" class="block mt-4 bg-primary text-white py-2 px-4 rounded">Withdraw History
+                        <i class="fas fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS to animate the arrow icons -->
+        <style>
+            /* Apply transition to the icons inside the links */
+            /* Apply transition to the icons inside the links */
+            a i {
+                transition: transform 0.3s ease, margin-left 0.3s ease;
+            }
+
+            /* Rotate the arrow upwards on hover */
+            a:hover i {
+                transform: rotate(275deg);
+                /* Rotate the arrow icon to point upwards */
+                margin-left: 5px;
+                /* Add slight space for effect */
+            }
+        </style>
+
+        <div class="container mt-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Total Users Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <!-- Total Withdraw -->
-                        <div class="col-lg-12 col-md-6 mb-30">
-                            <div class="widget-three box--shadow2 b-radius--5 bg--white">
-                                <div class="widget-three__icon b-radius--rounded bg--primary">
-                                    <i class="las la-university"></i>
-                                </div>
-                                <div class="widget-three__content">
-                                    <h2>00.00 PKR</h2>
-                                    <p>Total Withdraw</p>
-                                    <a href="withdraw.html" class="btn cmn-btn mt-2">Withdraw History <i
-                                            class="fas fa-arrow-circle-right"></i></a>
-                                </div>
-                            </div>
+                        <div class="widget-content">
+                            <div class="widget-title">Total Users</div>
+                            <div class="widget-value" id="totalUsers">1,234</div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Total Earnings Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-title">Total Earnings</div>
+                            <div class="widget-value" id="totalEarnings">₨ 123,473,639,046</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Growth Widget -->
+                <div class="bg-white shadow-lg rounded-lg p-4 transition transform hover:scale-105 hover:shadow-2xl">
+                    <div class="flex items-center justify-between">
+                        <div class="text-primary text-3xl transition-transform transform hover:rotate-12">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="widget-content">
+                            <div class="widget-title">Monthly Growth</div>
+                            <div class="widget-value">15%</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
-        crossorigin="anonymous"></script>
-       
+
+        <script>
+            // Set initial total earnings to ₨ 500,000
+            let totalEarnings = 500000;
+        
+            // Randomly increase total earnings by an amount between ₨ 20,000 and ₨ 50,000
+            const randomIncrease = Math.floor(Math.random() * (50000 - 20000 + 1)) + 20000;
+            totalEarnings += randomIncrease;
+        
+            // Update the total earnings on the page
+            document.getElementById('totalEarnings').textContent = `₨ ${totalEarnings.toLocaleString()}`;
+        
+            // Randomly increase users count by 4 or 5 every day
+            const randomUsers = Math.floor(Math.random() * (5 - 4 + 1)) + 4;
+            document.getElementById('totalUsers').textContent = (1234 + randomUsers).toLocaleString();
+        </script>
+        
+        <script>
+            const balance = localStorage.getItem('balance');
+            document.getElementById('balance').textContent = balance ? `${balance} PKR` : "0.00 PKR";
+        </script>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4592812226967865"
+            crossorigin="anonymous"></script>
+
         <!-- <script type='text/javascript' src='//condemnfundraiserjune.com/e2/00/0f/e2000fde0e0fe5fa07f942ea274ce2eb.js'></script><script type='text/javascript' src='//condemnfundraiserjune.com/e2/00/0f/e2000fde0e0fe5fa07f942ea274ce2eb.js'></script> -->
         <!-- footer section start -->
         <footer class="footer-section">
@@ -265,7 +291,7 @@
                 </div>
             </div>
         </footer>
-       
+
 
         <!-- footer section end -->
 

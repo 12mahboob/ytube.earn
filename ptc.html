@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>PixAds - Earn Money by Watching Ads</title>
     <meta name="title" content="PixAds - Earn Money by Watching Ads">
-    <meta name="description" content="PixAds is the best platform to earn money online by watching ads. Start earning today with PTC Ads, hourly bonuses, and daily rewards!">
+    <meta name="description"
+        content="PixAds is the best platform to earn money online by watching ads. Start earning today with PTC Ads, hourly bonuses, and daily rewards!">
     <meta name="keywords" content="earn money online, PTC ads, pay per click, watch ads earn money, online earning">
     <link rel="shortcut icon" href="https://iili.io/2bjFecX.jpg" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://iili.io/2bjFecX.jpg">
@@ -18,7 +19,8 @@
     <meta itemprop="image" content="https://iili.io/2bjFecX.jpg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="PixAds - Earn Money by Watching Ads">
-    <meta property="og:description" content="Start earning money online with PixAds. Watch ads, claim bonuses, and grow your balance!">
+    <meta property="og:description"
+        content="Start earning money online with PixAds. Watch ads, claim bonuses, and grow your balance!">
     <meta property="og:image" content="https://iili.io/2bjFecX.jpg" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1180" />
@@ -43,6 +45,7 @@
             background-color: #000;
             color: #fff;
         }
+
         .btn-earn {
             padding: 8px 16px;
             font-size: 14px;
@@ -53,13 +56,16 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .btn-earn:hover {
             background-color: #0c0457;
             transform: scale(1.05);
         }
+
         .btn-earn:active {
             transform: scale(0.95);
         }
+
         .btn-bonus {
             padding: 8px 16px;
             font-size: 14px;
@@ -70,13 +76,16 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .btn-bonus:hover {
             background-color: #45a049;
             transform: scale(1.05);
         }
+
         .btn-bonus:active {
             transform: scale(0.95);
         }
+
         .btn-faucet {
             padding: 8px 16px;
             font-size: 14px;
@@ -87,19 +96,71 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
+
         .btn-faucet:hover {
             background-color: #1e88e5;
             transform: scale(1.05);
         }
+
         .btn-faucet:active {
             transform: scale(0.95);
         }
+
+        /* Responsive Video Container */
         .video-container {
             background-color: #222;
             color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            width: 90%;
+            max-width: 400px;
+            height: auto;
         }
-        .footer-section {
-            background-color: #111;
+
+        .video-container iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Media Queries for Larger Screens */
+        @media (min-width: 768px) {
+            .video-container {
+                width: 60%;
+                max-width: 600px;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .video-container {
+                width: 50%;
+                max-width: 800px;
+            }
+
+            .video-container iframe {
+                height: 400px;
+            }
+        }
+
+        /* Overlay for dimming the background */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
         }
     </style>
 </head>
@@ -125,74 +186,58 @@
 
     <!-- Page Wrapper -->
     <div class="page-wrapper">
+        <script src="nav.js"></script>
         <!-- Navigation Placeholder -->
-        <script>
-            fetch('nav.html')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok: ' + response.statusText);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById('nav-placeholder').innerHTML = data;
-                })
-                .catch(error => {
-                    console.error('Error loading the navigation:', error);
-                    document.getElementById('nav-placeholder').innerHTML = '<p>Navigation failed to load.</p>';
-                });
-        </script>
-
         <div id="nav-placeholder"></div>
 
         <!-- Main Content -->
         <div class="page-wrapper">
             <!-- Hero Section -->
-            <div class="page-wrapper">
-                <section class="inner-page-hero bg-cover bg-center"
-                    style="background-image: url('https://www.eads.pk/assets/images/frontend/breadcrumb/64af8aaa994201689225898.jpg');">
-                    <div class="container mx-auto px-4">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h2 class="page-title text-white text-2xl font-bold">PTC Ads</h2>
-                                <ul class="page-list flex space-x-4">
-                                    <li><a href="dashboard.html" class="text-white hover:text-gray-300">Home</a></li>
-                                    <li class="text-white">PTC Ads</li>
-                                </ul>
-                            </div>
-                            <div class="counter text-green-500 text-2xl font-bold">Balance: <span id="balance">0</span>
-                            </div>
+            <section class="inner-page-hero bg-cover bg-center"
+                style="background-image: url('https://www.eads.pk/assets/images/frontend/breadcrumb/64af8aaa994201689225898.jpg');">
+                <div class="container mx-auto px-4">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2 class="page-title text-white text-2xl font-bold">PTC Ads</h2>
+                            <ul class="page-list flex space-x-4">
+                                <li><a href="dashboard.html" class="text-white hover:text-gray-300">Home</a></li>
+                                <li class="text-white">PTC Ads</li>
+                            </ul>
+                        </div>
+                        <div class="counter text-green-500 text-2xl font-bold">Balance: <span id="balance">0</span>
                         </div>
                     </div>
-                </section>
-                <!-- Daily Bonus Section -->
-                <div id="daily-bonus" class="text-center my-6 px-4">
-                    <button id="dailyBonusButton" class="btn-bonus">
-                        Claim Your Daily Bonus
-                    </button>
-                    <p class="text-gray-400 mt-2 text-sm md:text-base">Claim your daily bonus of 300 PKR every 24 hours!</p>
                 </div>
+            </section>
 
-                <!-- Hourly Faucet Section -->
-                <h2 class="text-center text-xl font-bold my-4 px-4">Claim Your Hourly Bonus</h2>
-                <div id="hourly-faucet" class="text-center my-4 px-4"></div>
-
-                <!-- Watch Ads Section -->
-                <h2 class="text-center text-xl font-bold my-4 px-4">Watch Ads and Earn Money</h2>
-                <div id="earning-buttons" class="flex flex-wrap justify-center gap-4 my-4 px-4"></div>
-
-                <!-- Video Container for Ads -->
-                <div id="video-containers" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50 flex items-center justify-center"></div>
-                <!-- Footer Section -->
-                <footer class="footer-section bg-gray-900 text-white py-4">
-                    <div class="container mx-auto px-4">
-                        <hr class="border-gray-700">
-                        <div class="text-center">
-                            <p>&copy; 2024 PixAds. All Rights Reserved.</p>
-                        </div>
-                    </div>
-                </footer>
+            <!-- Daily Bonus Section -->
+            <div id="daily-bonus" class="text-center my-6 px-4">
+                <button id="dailyBonusButton" class="btn-bonus">
+                    Claim Your Daily Bonus
+                </button>
+                <p class="text-gray-400 mt-2 text-sm md:text-base">Claim your daily bonus of 300 PKR every 24 hours! </p>
             </div>
+
+            <!-- Hourly Faucet Section -->
+            <h2 class="text-center text-xl font-bold my-4 px-4">Claim Your Hourly Bonus</h2>
+            <div id="hourly-faucet" class="text-center my-4 px-4"></div>
+
+            <!-- Watch Ads Section -->
+            <h2 class="text-center text-xl font-bold my-4 px-4">Watch Ads and Earn Money</h2>
+            <div id="earning-buttons" class="flex flex-wrap justify-center gap-4 my-4 px-4"></div>
+
+            <!-- Video Container for Ads -->
+            <div id="video-containers" class="absolute left-12 flex items-center justify-center"></div>
+
+            <!-- Footer Section -->
+            <footer class="footer-section bg-gray-900 text-white py-4">
+                <div class="container mx-auto px-4">
+                    <hr class="border-gray-700">
+                    <div class="text-center">
+                        <p>&copy; 2024 PixAds. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
 
@@ -206,266 +251,10 @@
     <script src="https://www.eads.pk/assets/templates/basic/js/app.js"></script>
     <link rel="stylesheet" href="https://www.eads.pk/assets/global/css/iziToast.min.css">
     <script src="https://www.eads.pk/assets/global/js/iziToast.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let balance = parseFloat(localStorage.getItem('balance')) || 0;
-            const rewardAmount = 5;
-            const hourlyBonus = 50;
-            const dailyBonusAmount = 300;
-            const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
-            const watchTime = 20000; // 20 seconds in milliseconds
-            const links = [
-                "https://www.youtube.com/embed/6K2cPl_gO0I",
-                "https://www.youtube.com/embed/BVKeYEhHW7E",
-                // Add more links as needed
-            ];
+    <script src="index.js">
 
-            // Increase the array length to 1000
-            while (links.length < 1000) {
-                links.push(...links.slice(0, Math.min(links.length, 1000 - links.length)));
-            }
-
-            // Limit the number of active video containers
-            const maxActiveContainers = 5;
-            let activeContainers = 0;
-
-            function updateBalance(amount) {
-                balance += amount;
-                localStorage.setItem('balance', balance.toFixed(2));
-                displayBalance();
-            }
-
-            function displayBalance() {
-                const balanceElem = document.getElementById("balance");
-                if (balanceElem) {
-                    balanceElem.textContent = isNaN(balance) ? '0.00' : balance.toFixed(2);
-                }
-            }
-
-            function createYouTubeButtons() {
-                const container = document.getElementById('earning-buttons');
-                container.innerHTML = '';
-                links.forEach((link, index) => {
-                    const button = document.createElement("button");
-                    button.textContent = `Earn ${rewardAmount} PKR - Video ${index + 1}`;
-                    button.className = "btn-earn";
-
-                    const lastClickDate = localStorage.getItem(`lastClickDate_${index}`);
-                    if (lastClickDate) {
-                        const lastClickTime = new Date(lastClickDate).getTime();
-                        const currentTime = new Date().getTime();
-                        const midnight = new Date();
-                        midnight.setHours(24, 0, 0, 0);
-
-                        if (currentTime < midnight.getTime() && currentTime - lastClickTime < oneDayInMilliseconds) {
-                            button.style.display = 'none'; // Hide the button
-                            const remainingTime = midnight.getTime() - currentTime;
-                            startMidnightCountdown(button, remainingTime);
-                        }
-                    }
-
-                    button.onclick = function () {
-                        if (activeContainers < maxActiveContainers) {
-                            openVideo(link, button, index);
-                            localStorage.setItem(`lastClickDate_${index}`, new Date().toISOString());
-                            button.style.display = 'none'; // Hide the button after click
-
-                            const midnight = new Date();
-                            midnight.setHours(24, 0, 0, 0);
-                            const remainingTime = midnight.getTime() - new Date().getTime();
-                            startMidnightCountdown(button, remainingTime);
-                        } else {
-                            alert("You can only watch up to 5 videos at a time. Please finish one before starting another.");
-                        }
-                    };
-
-                    container.appendChild(button);
-                });
-            }
-
-            function openVideo(link, button, index) {
-                const videoContainers = document.getElementById('video-containers');
-
-                // Create a new video container
-                const videoContainer = document.createElement('div');
-                videoContainer.className = "video-container bg-gray-900 p-4 md:p-6 rounded-lg shadow-lg absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2";
-                videoContainer.style.zIndex = "100"; // Ensure it's above other elements
-
-                // Add video content
-                videoContainer.innerHTML = `
-                    <div class="video-header flex justify-between items-center mb-4">
-                        <h3 class="text-lg md:text-xl font-bold text-white">Watch Ad to Earn</h3>
-                        <button class="close-button text-white">×</button>
-                    </div>
-                    <iframe class="video-frame w-full h-48 md:h-64 rounded-lg" src="${link}?autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    <div class="counter text-center text-lg font-bold my-2 text-white">20</div>
-                    <div class="progress-bar-container w-full bg-gray-700 rounded h-2 my-2">
-                        <div class="progress-bar bg-green-500 h-2 rounded" style="width: 100%;"></div>
-                    </div>
-                    <div class="error-message text-red-500 text-center my-2 hidden">Please wait for the countdown to finish.</div>
-                `;
-
-                // Make the container draggable
-                makeDraggable(videoContainer);
-
-                // Add close functionality
-                const closeButton = videoContainer.querySelector('.close-button');
-                closeButton.onclick = function () {
-                    videoContainer.remove();
-                    activeContainers--;
-                };
-
-                // Start the countdown
-                const counter = videoContainer.querySelector('.counter');
-                const progressBar = videoContainer.querySelector('.progress-bar');
-                let remainingTime = watchTime / 1000;
-                counter.textContent = `${remainingTime}s`;
-
-                let interval = setInterval(() => {
-                    remainingTime--;
-                    counter.textContent = `${remainingTime}s`;
-                    progressBar.style.width = `${(remainingTime / (watchTime / 1000)) * 100}%`;
-                    if (remainingTime <= 0) {
-                        clearInterval(interval);
-                        videoContainer.remove();
-                        updateBalance(rewardAmount);
-                        activeContainers--;
-                    }
-                }, 1000);
-
-                // Append the new container
-                videoContainers.appendChild(videoContainer);
-                activeContainers++;
-            }
-
-            function makeDraggable(element) {
-                let isDragging = false;
-                let offsetX, offsetY;
-
-                element.addEventListener('mousedown', function (e) {
-                    isDragging = true;
-                    offsetX = e.clientX - element.getBoundingClientRect().left;
-                    offsetY = e.clientY - element.getBoundingClientRect().top;
-                    element.style.cursor = 'grabbing';
-                });
-
-                document.addEventListener('mousemove', function (e) {
-                    if (isDragging) {
-                        element.style.left = `${e.clientX - offsetX}px`;
-                        element.style.top = `${e.clientY - offsetY}px`;
-                    }
-                });
-
-                document.addEventListener('mouseup', function () {
-                    isDragging = false;
-                    element.style.cursor = 'grab';
-                });
-            }
-
-            // Rest of the functions remain the same
-            function startDailyBonusTimer() {
-                const lastClaimedDate = localStorage.getItem("lastClaimedDate");
-                const dailyBonusButton = document.getElementById("dailyBonusButton");
-
-                if (lastClaimedDate) {
-                    const lastClaimedTime = new Date(lastClaimedDate).getTime();
-                    const currentTime = new Date().getTime();
-                    const remainingTime = oneDayInMilliseconds - (currentTime - lastClaimedTime);
-
-                    if (remainingTime > 0) {
-                        dailyBonusButton.disabled = true;
-                        const countdownInterval = setInterval(() => {
-                            const hours = Math.floor(remainingTime / (1000 * 60 * 60));
-                            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
-                            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
-                            dailyBonusButton.textContent = `${hours}h ${minutes}m ${seconds}s`;
-                            if (remainingTime <= 0) {
-                                clearInterval(countdownInterval);
-                                dailyBonusButton.disabled = false;
-                                dailyBonusButton.textContent = "Claim Daily Bonus";
-                            }
-                        }, 1000);
-                    } else {
-                        dailyBonusButton.disabled = false;
-                    }
-                }
-            }
-
-            function claimDailyBonus() {
-                updateBalance(dailyBonusAmount);
-                localStorage.setItem("lastClaimedDate", new Date().toISOString());
-                startDailyBonusTimer();
-            }
-
-            function createHourlyFaucetButton() {
-                const container = document.getElementById('hourly-faucet');
-                container.innerHTML = '';
-
-                const hourlyButton = document.createElement('button');
-                hourlyButton.textContent = `Claim Hourly Faucet: ${hourlyBonus} PKR`;
-                hourlyButton.className = "btn-faucet";
-                const lastClaimTime = localStorage.getItem('lastClaimTime');
-                const currentTime = Date.now();
-                const claimCooldown = 3600000;
-
-                if (lastClaimTime) {
-                    const timeSinceLastClaim = currentTime - lastClaimTime;
-                    if (timeSinceLastClaim < claimCooldown) {
-                        const remainingTime = claimCooldown - timeSinceLastClaim;
-                        hourlyButton.disabled = true;
-                        startRemainingTimeCountdown(hourlyButton, remainingTime);
-                    }
-                }
-
-                hourlyButton.onclick = function () {
-                    updateBalance(hourlyBonus);
-                    localStorage.setItem('lastClaimTime', Date.now());
-                    hourlyButton.disabled = true;
-                    createHourlyFaucetButton();
-                };
-
-                container.appendChild(hourlyButton);
-            }
-
-            function startRemainingTimeCountdown(button, remainingTime) {
-                const countdownInterval = setInterval(() => {
-                    remainingTime -= 1000;
-                    const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
-                    const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
-                    const seconds = Math.floor((remainingTime / 1000) % 60);
-                    button.textContent = `Next claim in: ${hours}h ${minutes}m ${seconds}s`;
-
-                    if (remainingTime <= 0) {
-                        clearInterval(countdownInterval);
-                        button.textContent = `Claim Hourly Faucet: ${hourlyBonus} PKR`;
-                        button.disabled = false;
-                    }
-                }, 1000);
-            }
-
-            function startMidnightCountdown(button, remainingTime) {
-                const countdownInterval = setInterval(() => {
-                    remainingTime -= 1000;
-                    const hours = Math.floor((remainingTime / (1000 * 60 * 60)) % 24);
-                    const minutes = Math.floor((remainingTime / (1000 * 60)) % 60);
-                    const seconds = Math.floor((remainingTime / 1000) % 60);
-
-                    if (remainingTime <= 0) {
-                        clearInterval(countdownInterval);
-                        button.style.display = 'inline-block'; // Show the button again
-                        button.textContent = `Earn ${rewardAmount} Rs - Video ${button.dataset.index + 1}`;
-                    }
-                }, 1000);
-            }
-
-            document.getElementById("dailyBonusButton").addEventListener("click", claimDailyBonus);
-
-            displayBalance();
-            createYouTubeButtons();
-            createHourlyFaucetButton();
-            startDailyBonusTimer();
-        });
     </script>
 </body>
 
 </html>
+
