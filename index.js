@@ -89,15 +89,15 @@ document.addEventListener('DOMContentLoaded', function () {
     function openVideoContainer(startIndex) {
         const videoContainers = document.getElementById('video-containers');
         if (!videoContainers) return;
-
+    
         const existingContainer = document.querySelector('.video-container');
         if (existingContainer) {
             existingContainer.remove();
         }
-
+    
         const videoContainer = document.createElement('div');
         videoContainer.className = "video-container";
-
+    
         const playerId = `player-${startIndex}`;
         videoContainer.innerHTML = `
             <div class="video-header flex justify-between items-center mb-2 w-full">
@@ -110,16 +110,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="progress-bar bg-green-500 h-2 rounded" style="width: 100%;"></div>
             </div>
         `;
-
+    
         const closeButton = videoContainer.querySelector('.close-btn');
         const counter = videoContainer.querySelector('.counter');
         const progressBar = videoContainer.querySelector('.progress-bar');
-
+    
         let interval;
         let remainingTime = watchTime / 1000; // Convert to seconds
         let currentIndex = startIndex;
         let player;
-
+    
         function createPlayer() {
             player = new YT.Player(playerId, {
                 height: '200',
@@ -140,47 +140,51 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         }
-
+    
         function onPlayerReady(event) {
             event.target.playVideo();
             startCountdown();
         }
-
+    
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.ENDED) {
                 playNextVideo();
             }
         }
-
+    
         function playNextVideo() {
             if (currentIndex >= newLinks.length) {
                 closeVideoContainer();
                 return;
             }
-
+    
+            // Store the lastClickDate for the current video
+            localStorage.setItem(`lastClickDate_${currentIndex}`, new Date().toISOString());
+    
             player.loadVideoById(extractVideoId(newLinks[currentIndex]));
             remainingTime = watchTime / 1000; // Reset remaining time
             startCountdown();
         }
-
+    
         function startCountdown() {
             clearInterval(interval);
             counter.textContent = `${remainingTime}s`;
-
+    
             interval = setInterval(() => {
                 remainingTime--;
                 counter.textContent = `${remainingTime}s`;
                 progressBar.style.width = `${(remainingTime / (watchTime / 1000)) * 100}%`;
-
+    
                 if (remainingTime <= 0) {
                     clearInterval(interval);
                     updateBalance(rewardAmount);
-
+    
+                    // Hide the button for the current video
                     const videoBtn = document.getElementById(`video-btn-${currentIndex}`);
                     if (videoBtn) {
                         videoBtn.style.display = "none";
                     }
-
+    
                     currentIndex++;
                     if (currentIndex < newLinks.length) {
                         playNextVideo();
@@ -190,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }, 1000);
         }
-
+    
         function closeVideoContainer() {
             clearInterval(interval);
             if (player) {
@@ -199,25 +203,24 @@ document.addEventListener('DOMContentLoaded', function () {
             videoContainer.remove();
             activeContainers = 0;
         }
-
+    
         closeButton.onclick = closeVideoContainer;
-
+    
         videoContainers.appendChild(videoContainer);
         activeContainers = 1;
-
+    
         if (typeof YT !== "undefined" && typeof YT.Player !== "undefined") {
             createPlayer();
         } else {
             const scriptTag = document.createElement('script');
             scriptTag.src = "https://www.youtube.com/iframe_api";
             document.head.appendChild(scriptTag);
-
+    
             window.onYouTubeIframeAPIReady = function () {
                 createPlayer();
             };
         }
     }
-
     function extractVideoId(url) {
         const regExp = /^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
         const match = url.match(regExp);
