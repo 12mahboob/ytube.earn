@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const rewardAmount = 2;
     const hourlyBonus = 20;
     const dailyBonusAmount = 100;
-    const watchTime = 3000; // 20 seconds in milliseconds
+    const watchTime = 20; // 20 seconds in milliseconds
     const oneDayInMilliseconds = 24 * 60 * 60 * 1000;
     let activeContainers = 0;
 
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const progressBar = videoContainer.querySelector('.progress-bar');
 
         let interval;
-        let remainingTime = watchTime / 1000; // Convert to seconds
+        let remainingTime = watchTime / 1; // Convert to seconds
         let currentIndex = startIndex;
         let player;
 
